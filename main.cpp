@@ -43,7 +43,8 @@ int main (int argc, char** argv)
     
         vec_str {"spirit", "humanoid", "primate", "flyer"}, //subtypes
                         
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"vampire", "bloodsucker"}, 
             .generic_plural    = vec_str{"vampires", "bloodsuckers"},
             .male              = vec_str{"gentleman", "man"},
@@ -63,7 +64,8 @@ int main (int argc, char** argv)
     
         vec_str {"mammal", "humanoid", "primate", "ape", "burrower", "runner"}, //subtypes
 
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"dwarf", "person"}, 
             .generic_plural    = vec_str{"dwarves", "people"},
             .male              = vec_str{"lad", "fellow"},
@@ -83,7 +85,8 @@ int main (int argc, char** argv)
     
         vec_str {"mammal", "humanoid", "primate", "ape", "wanderer", "runner"}, //subtypes
     
-        Nouns {
+        Nouns
+        {
             .generic           = vec_str{"human", "person"}, 
             .generic_plural    = vec_str{"humans", "people"},
             .male              = vec_str{"man", "gentleman", "bloke"},
@@ -103,7 +106,8 @@ int main (int argc, char** argv)
         
         vec_str {"mammal", "humanoid", "ape", "climber", "runner"}, //subtypes
       
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"chimpanzee", "chimp"}, 
             .generic_plural    = vec_str{"chimpanzees", "chimps"},
             .male              = vec_str{},
@@ -123,7 +127,8 @@ int main (int argc, char** argv)
         
         vec_str {"orcish", "humanoid", "monster", "demon", "runner"}, //subtypes
 
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"orc", "person"}, 
             .generic_plural    = vec_str{"orcs", "people"},
             .male              = vec_str{"he-orc", "fellow"},
@@ -143,7 +148,8 @@ int main (int argc, char** argv)
         
         vec_str {"orcish", "humanoid", "ape", "runner"}, //subtypes
 
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"goblin"}, 
             .generic_plural    = vec_str{"goblins"},
             .male              = vec_str{},
@@ -163,7 +169,8 @@ int main (int argc, char** argv)
         
         vec_str {"orcish", "humanoid", "fairy", "runner"}, //subtypes
         
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"gremlin"}, 
             .generic_plural    = vec_str{"gremlins"},
             .male              = vec_str{},
@@ -183,7 +190,8 @@ int main (int argc, char** argv)
       
       vec_str {"amphibian", "slime", "swimmer", "jumper"}, //subtypes
 
-      Nouns {
+      Nouns 
+      {
           .generic           = vec_str{"frog", "froggy", "toad"}, 
           .generic_plural    = vec_str{"frogs", "froggies", "toads"},
           .male              = vec_str{},
@@ -203,7 +211,8 @@ int main (int argc, char** argv)
         
         vec_str {"slime", "crawler"}, //subtypes
 
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"slime"}, 
             .generic_plural    = vec_str{"slimes"},
             .male              = vec_str{},
@@ -223,7 +232,8 @@ int main (int argc, char** argv)
         
         vec_str {"slime", "crawler", "monster"}, //subtypes
 
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"gelatinous-cube", "cube"}, 
             .generic_plural    = vec_str{"gelatinous-cubes", "cubes"},
             .male              = vec_str{},
@@ -243,7 +253,8 @@ int main (int argc, char** argv)
       
       vec_str {"bird", "flyer", "vermin"}, //subtypes
 
-      Nouns {
+      Nouns 
+      {
         .generic           = vec_str{"pigeon", "rock-dove"}, 
         .generic_plural    = vec_str{"pigeons", "rock-doves"},
         .male              = vec_str{"cock"},
@@ -263,7 +274,8 @@ int main (int argc, char** argv)
         
         vec_str {"bird", "flyer", "bird-of-prey", "nocturnal"}, //subtypes
 
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"owl"}, 
             .generic_plural    = vec_str{"owls"},
             .male              = vec_str{},
@@ -283,7 +295,8 @@ int main (int argc, char** argv)
         
         vec_str {"mammmal", "burrower", "runner"}, //subtypes
         
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"aardvark", "dirt-pig"}, 
             .generic_plural    = vec_str{"aardvarks", "dirt-pigs"},
             .male              = vec_str{},
@@ -303,7 +316,8 @@ int main (int argc, char** argv)
         
         vec_str {"spirit", "humanoid", "flyer"}, //subtypes
 
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"angel", "spirit"}, 
             .generic_plural    = vec_str{"angels", "spirits"},
             .male              = vec_str{},
@@ -323,7 +337,8 @@ int main (int argc, char** argv)
                        
         vec_str {"spirit", "demon", "humanoid", "flyer"}, //subtypes
 
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"demon"}, 
             .generic_plural    = vec_str{"demons"},
             .male              = vec_str{},
@@ -343,7 +358,8 @@ int main (int argc, char** argv)
         
         vec_str {"mammal", "canine", "wanderer", "runner"}, //subtypes
 
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"wolf", "dog"}, 
             .generic_plural    = vec_str{"wolves", "dogs"},
             .male              = vec_str{},
@@ -363,7 +379,8 @@ int main (int argc, char** argv)
         
         vec_str {"bird", "flyer", "swimmer"}, //subtypes
 
-        Nouns {
+        Nouns 
+        {
             .generic           = vec_str{"duck", "ducky"}, 
             .generic_plural    = vec_str{"ducks", "duckies"},
             .male              = vec_str{"drake"},
