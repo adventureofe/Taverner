@@ -173,7 +173,7 @@ int main (int argc, char** argv)
   */
   
   
-  //print all keys
+  //print all keys and some values (not completed yet)
   for (auto const& [key, val] : species)
   {
     std::cout << "key-name (" << key << ")\n";
