@@ -1,5 +1,5 @@
 /* taverner
-
+   
 By theadventureofe(John Gormley)
 
 main file
@@ -13,20 +13,22 @@ the_adventure_of_e λ
 
 #include "headers/species.hpp"
 
-// print all included cmd args (removes warning)
+// print all included cmd args (removes compiler warning)
 void arg_print(int argc, char** argv)
 {
   for(int i = 1; i < argc; i++)
   {
     printf("arg[%d]: %s", i, argv[i]);
   }
-
+  
   if(argc > 1)
   {
     printf("\n");
   } 
 }
 
+
+//macro to shorten typing in this long ass template code
 #define vec_str std::vector<std::string>
 
 int main (int argc, char** argv)
@@ -37,7 +39,7 @@ int main (int argc, char** argv)
                         Weight {.min = 59000, .max = 77000},
                         Length {.min = 1590, .max = 1710},
                         vec_str {"spirit", "humanoid", "primate", "flyer"}, //subtypes
-
+                        
                         Nouns {
                           .generic           = vec_str{"vampire", "bloodsucker"}, 
                           .generic_plural    = vec_str{"vampires", "bloodsuckers"},
@@ -152,40 +154,51 @@ int main (int argc, char** argv)
   //Generate map for all species
   //this may be better as smart pointers (don't know how to do that)
   std::map<std::string, Species*> species = 
-    {
-      {"vampire", &vampire},
-      {"dwarf", &dwarf},
-      {"human", &human},
-      {"chimpanzee", &chimpanzee},
-      {"orc", &orc},
-      {"frog", &frog}
-    };
-
-/*
+  {
+    {"vampire", &vampire},
+    {"dwarf", &dwarf},
+    {"human", &human},
+    {"chimpanzee", &chimpanzee},
+    {"orc", &orc},
+    {"frog", &frog}
+  };
+  
+  /*
   //test print statements for maps ALL WORKING
   std::cout << species["vampire"]->length["max"] << "\n";
   std::cout << species["dwarf"]->noun["generic_plural"][0] << "\n";
   std::cout << species["human"]->subtypes[4] << "\n";
   std::cout << species["orc"]->noun["collective_plural"][0] << "\n";
   std::cout << species["frog"]->subtypes[0] << "\n";
-*/
-
-
-//print all keys
-for (auto const& [key, val] : species)
-{
-  std::cout << "key-name (" << key << ")\n";
-  std::cout << "weight (" << val->weight["min"] << " - " << val->weight["max"] << ") \n";
-  std::cout << "length (" << val->length["min"] << " - " << val->length["max"] << ") \n";
-
-  std::cout << "subtypes (";
-  for_each(val->subtypes.begin(), val->subtypes.end(),
-           [](std::string const& i){
-           std::cout << i << " ";
-           });
+  */
   
-  std::cout << ") \n\n";
-}
+  
+  //print all keys
+  for (auto const& [key, val] : species)
+  {
+    std::cout << "key-name (" << key << ")\n";
+    std::cout << "weight (" << val->weight["min"] << " - " << val->weight["max"] << ") \n";
+    std::cout << "length (" << val->length["min"] << " - " << val->length["max"] << ") \n";
+
+    std::cout << "subtypes ( ";
+    for_each(val->subtypes.begin(), val->subtypes.end(),
+             [](std::string const& i)
+             {
+               std::cout << i << " ";
+             });
+    std::cout << ") \n";
+
+    std::cout << "names ( ";
+    for_each(val->noun["generic"].begin(), val->noun["generic"].end(),
+             [](std::string const& i)
+             {
+               std::cout << i << " ";
+             });
+    std::cout << ") \n";
+
+    std::cout << "\n";
+    
+  }
 
 
   return 0;
