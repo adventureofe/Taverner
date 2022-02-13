@@ -30,9 +30,6 @@ void arg_print(int argc, char** argv)
 //macro to shorten typing in this long ass template code
 #define vec_str std::vector<std::string>
 
-//macro to shorten typing in this long ass template code
-#define vec_str std::vector<std::string>
-
 int main (int argc, char** argv)
 {
     arg_print(argc, argv);
