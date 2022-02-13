@@ -24,18 +24,21 @@ struct Length
   int max;
 };
 
+//macro to shorten typing in this long ass template code
+#define vec_str std::vector<std::string>
+
 struct Nouns
 {
-  std::vector<std::string> generic;
-  std::vector<std::string> generic_plural;
-  std::vector<std::string> male;
-  std::vector<std::string> male_plural;
-  std::vector<std::string> female;
-  std::vector<std::string> female_plural;  
-  std::vector<std::string> child;
-  std::vector<std::string> child_plural;
-  std::vector<std::string> collective;
-  std::vector<std::string> collective_plural;
+  vec_str generic;
+  vec_str generic_plural;
+  vec_str male;
+  vec_str male_plural;
+  vec_str female;
+  vec_str female_plural;  
+  vec_str child;
+  vec_str child_plural;
+  vec_str collective;
+  vec_str collective_plural;
 };
 
 class Species 
