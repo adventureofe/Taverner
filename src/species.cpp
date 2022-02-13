@@ -12,13 +12,13 @@ the_adventure_of_e λ
 #include "../headers/species.hpp"
 
 
-Species::Species(Weight weights, Length lengths, std::vector<std::string> subtypes, Nouns nouns) 
+Species::Species(Weight weight, Length length, std::vector<std::string> subtypes, Nouns nouns) 
 {
-  weight = {{"min", weights.min}, {"max", weights.max}};
-  length = {{"min", lengths.min}, {"max", lengths.max}};
-  subtype = subtypes;
+  this->weight = {{"min", weight.min}, {"max", weight.max}};
+  this->length = {{"min", length.min}, {"max", length.max}};
+  this->subtypes = subtypes;
   
-  noun = {
+  this->noun = {
     {"generic", nouns.generic}, {"generic_plural", nouns.generic_plural}, 
     {"male", nouns.male}, {"male_plural", nouns.male_plural}, 
     {"female", nouns.female}, {"female_plural", nouns.female_plural},

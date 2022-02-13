@@ -161,10 +161,32 @@ int main (int argc, char** argv)
       {"frog", &frog}
     };
 
+/*
+  //test print statements for maps ALL WORKING
   std::cout << species["vampire"]->length["max"] << "\n";
   std::cout << species["dwarf"]->noun["generic_plural"][0] << "\n";
-  std::cout << species["human"]->subtype[4] << "\n";
+  std::cout << species["human"]->subtypes[4] << "\n";
   std::cout << species["orc"]->noun["collective_plural"][0] << "\n";
-  std::cout << species["frog"]->subtype[0] << "\n";
+  std::cout << species["frog"]->subtypes[0] << "\n";
+*/
+
+
+//print all keys
+for (auto const& [key, val] : species)
+{
+  std::cout << "key-name (" << key << ")\n";
+  std::cout << "weight (" << val->weight["min"] << " - " << val->weight["max"] << ") \n";
+  std::cout << "length (" << val->length["min"] << " - " << val->length["max"] << ") \n";
+
+  std::cout << "subtypes (";
+  for_each(val->subtypes.begin(), val->subtypes.end(),
+           [](std::string const& i){
+           std::cout << i << " ";
+           });
+  
+  std::cout << ") \n\n";
+}
+
+
   return 0;
 }

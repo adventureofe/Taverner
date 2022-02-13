@@ -41,11 +41,11 @@ struct Nouns
 class Species 
 {
   public:
-  Species(Weight weights, Length lengths, std::vector<std::string> subtypes, Nouns nouns);
+  Species(Weight weight, Length length, std::vector<std::string> subtypes, Nouns nouns);
   Species();
 
   std::map <std::string, int> weight;
   std::map <std::string, int> length;
-  std::vector<std::string> subtype;
+  std::vector<std::string> subtypes;
   std::map <std::string, std::vector<std::string>> noun;
 };
