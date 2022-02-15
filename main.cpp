@@ -12,6 +12,7 @@ the_adventure_of_e λ
 #include <memory>
 
 #include "headers/species.hpp"
+#include "headers/element.hpp"
 
 // print all included cmd args (removes compiler warning)
 void arg_print(int argc, char** argv)
@@ -32,17 +33,11 @@ int main (int argc, char** argv)
 {
     arg_print(argc, argv);
 
+    //print all data of zebra species
     species["zebra"]->print();
+
+    //print all data of water element
+    elements["water"]->print();
   
-    //test print statements for maps ALL WORKING
-/*  
-    //print all keys and some values (not completed yet)
-    for (auto const& [key, val] : species)
-    {
-        std::cout << "key-name (" << key << ")\n";
-        std::cout << "weight (" << val->weight["min"] << " - " << val->weight["max"] << ") \n";
-        std::cout << "length (" << val->length["min"] << " - " << val->length["max"] << ") \n";
-    }
-*/
     return 0;
 }

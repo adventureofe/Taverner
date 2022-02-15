@@ -51,6 +51,7 @@ Species::Species(Weight weight, Length length, std::vector<std::string> subtypes
 }
 
 void Species::print(){
+  std::cout << "(SPECIES-PRINT)\n";
  std::cout << "Name:( " << this->noun["generic"][0] << " )\n";
  std::cout << "Weight:( " << this->weight["min"] << " - " << this->weight["max"] << " )\n";
  std::cout << "Length:( " << this->length["min"] << " - " << this->length["max"] << " )\n";
@@ -61,7 +62,7 @@ void Species::print(){
      {
          std::cout << i << " ";
      });
- std::cout << ")\n";
+ std::cout << ")\n\n";
                
 }
 

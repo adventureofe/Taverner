@@ -58,5 +58,5 @@ class Species
   std::map <std::string, std::vector<std::string>> noun;
 };
 
-  //main map for all species
+// main map for all species
 extern std::map <std::string, Species*> species;
