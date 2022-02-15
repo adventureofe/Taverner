@@ -4,8 +4,7 @@ By theadventureofe(John Gormley)
 
 element source code
 
-the_adventure_of_e λ
-*/
+the_adventure_of_e λ */
 
 #include <iostream>
 #include <utility>
@@ -42,7 +41,6 @@ Element::Element()
         {"water",    1.0}
     };
 };
-
 
 Element::Element(std::string name, Multipliers multipliers)
 {

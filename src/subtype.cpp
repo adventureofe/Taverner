@@ -4,8 +4,7 @@ By theadventureofe(John Gormley)
 
 subtype source code
 
-the_adventure_of_e λ
-*/
+the_adventure_of_e λ */
 
 #include <iostream>
 #include <utility>

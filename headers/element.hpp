@@ -4,8 +4,7 @@ By theadventureofe(John Gormley)
 
 element header file
 
-the_adventure_of_e λ
-*/
+the_adventure_of_e λ */
 
 #pragma once
 

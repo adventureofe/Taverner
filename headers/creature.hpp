@@ -7,8 +7,7 @@ species header file
 each creature will have 1 species
 each creature will have 1-2 elements
 
-the_adventure_of_e λ
-*/
+the_adventure_of_e λ */
 
 #pragma once
 

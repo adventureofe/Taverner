@@ -4,8 +4,7 @@ By theadventureofe(John Gormley)
 
 species source code
 
-the_adventure_of_e λ
-*/
+the_adventure_of_e λ */
 
 #include <iostream>
 #include <utility>
@@ -14,9 +13,9 @@ the_adventure_of_e λ
 
 #include "../headers/subtype.hpp"
 #include "../headers/species.hpp"
+
 //macro to shorten typing in this long ass template code
 #define vec_str std::vector<std::string>
-
 
 //default constructor for species with no arguments
 Species::Species() 
@@ -71,7 +70,6 @@ void Species::print()
 
     std::cout << " )\n\n";           
 }
-
 
 // large section for creating blueprints for all available prebaked species
 //these wil be added to a map at the bottom once all are declared
@@ -585,7 +583,6 @@ Species zebra = Species(
         .collective_plural = vec_str{"herds", "groups"}
     }
 );
-
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Generate map for all species
