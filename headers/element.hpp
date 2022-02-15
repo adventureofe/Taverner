@@ -2,7 +2,7 @@
 
 By theadventureofe(John Gormley)
 
-species header file
+element header file
 
 the_adventure_of_e λ
 */
@@ -40,7 +40,7 @@ struct Multipliers
 
 class Element
 {
-  public:
+public:
   
   Element();
   Element(std::string name, Multipliers multipliers);

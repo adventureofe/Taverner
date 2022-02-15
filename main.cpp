@@ -15,6 +15,8 @@ the_adventure_of_e λ
 #include "headers/element.hpp"
 #include "headers/creature.hpp"
 
+
+
 // print all included cmd args (removes compiler warning)
 void arg_print(int argc, char** argv)
 {
@@ -37,6 +39,7 @@ int main (int argc, char** argv)
     //print all data of zebra species
     species_map["zebra"]->print();
 
+
     //print all data of water element
     element_map["water"]->print();
 
@@ -54,6 +57,6 @@ int main (int argc, char** argv)
 
     //using the print function of the interal eleement of creature
     earth_alien_orc.element_1->print();
-    
+   
     return 0;
 }

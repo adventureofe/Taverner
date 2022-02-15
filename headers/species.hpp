@@ -16,6 +16,8 @@ the_adventure_of_e λ
 #include <map>
 #include <vector>
 
+#include "subtype.hpp"
+
 struct Weight
 {
   int min;
@@ -48,7 +50,7 @@ struct Nouns
 class Species 
 {
   public:
-  Species(Weight weight, Length length, std::vector<std::string> subtypes, Nouns nouns);
+  Species(Weight weight, Length length, std::vector<Subtype*> subtypes, Nouns nouns);
   Species();
 
   void print();
@@ -56,7 +58,7 @@ class Species
 
   std::map <std::string, int> weight;
   std::map <std::string, int> length;
-  std::vector<std::string> subtypes;
+  std::vector<Subtype*> subtypes;
   std::map <std::string, std::vector<std::string>> noun;
 };
 
