@@ -126,6 +126,33 @@ Species angel = Species(
     }
 );
 
+Species banshee = Species(   
+    Weight {.min = 1, .max = 1},
+    Length {.min = 1220, .max = 1440},
+        
+    std::vector<Subtype*>
+    {
+        subtype_map["spirit"],
+        subtype_map["humanoid"],
+        subtype_map["flyer"]
+    },
+    
+    Nouns 
+    {
+        .generic           = vec_str{"banshee", "ghoul"}, 
+        .generic_plural    = vec_str{"banshees", "ghouls"},
+        .male              = vec_str{},
+        .male_plural       = vec_str{},
+        .female            = vec_str{},
+        .female_plural     = vec_str{},
+        .child             = vec_str{"wisp"},
+        .child_plural      = vec_str{"wisps"},
+        .collective        = vec_str{"haunting", "group"},
+        .collective_plural = vec_str{"hauntings", "groups"}
+    }
+);
+
+
 Species chimpanzee = Species (   
     Weight {.min = 40000, .max = 70000},
     Length {.min = 1500, .max = 1680},
@@ -372,6 +399,34 @@ Species human = Species (
     }
 );
 
+Species ogre = Species(   
+    Weight {.min = 110000, .max = 190000},
+    Length {.min = 2105, .max = 2560},
+    
+    std::vector<Subtype*> 
+    {
+        subtype_map["orcish"],
+        subtype_map["humanoid"],
+        subtype_map["monster"],
+        subtype_map["nocturnal"],
+        subtype_map["runner"]
+    },
+    
+    Nouns 
+    {
+      .generic           = vec_str{"ogre"}, 
+      .generic_plural    = vec_str{"ogres"},
+      .male              = vec_str{"he-ogre"},
+      .male_plural       = vec_str{"he-ogres"},
+      .female            = vec_str{"she-ogre"},
+      .female_plural     = vec_str{"she-orgres"},
+      .child             = vec_str{"ogreling"},
+      .child_plural      = vec_str{"ogrelings"},
+      .collective        = vec_str{"stampede", "group"},
+      .collective_plural = vec_str{"stampede", "groups"}
+    }
+);
+
 Species orc = Species(   
     Weight {.min = 70000, .max = 100000},
     Length {.min = 1790, .max = 2090},
@@ -591,6 +646,8 @@ std::map<std::string, Species*> species_map =
 {
     {"aardvark", &aardvark},
     {"angel", &angel},
+    {"banshee", &banshee},
+    {"chimpanzee", &chimpanzee},
     {"demon", &demon},
     {"duck", &duck},
     {"dwarf", &dwarf},
@@ -600,6 +657,7 @@ std::map<std::string, Species*> species_map =
     {"gremlin", &gremlin},
     {"human", &human},
     {"orc", &orc},
+    {"ogre", &ogre},
     {"owl", &owl},
     {"pigeon", &pigeon},
     {"penguin", &penguin},
