@@ -16,7 +16,7 @@ the_adventure_of_e λ
 
 Element::Element()
 {
-    this->name = "default element";
+    this->name = "DEFAULT_ELEMENT";
   
     this->multipliers = 
     {

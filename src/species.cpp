@@ -28,11 +28,11 @@ Species::Species()
  
     this->noun = 
     {
-        {"generic", vec_str{"default_generic"}}, {"generic_plural", vec_str{"default_generic_plural"}}, 
-        {"male", vec_str{"default_male"}}, {"male_plural", vec_str{"default_males"}}, 
-        {"female", vec_str{"default_female"}}, {"female_plural", vec_str{"default_females"}},
-        {"child", vec_str{"default_child"}}, {"child_plural", vec_str{"default_child_plural"}},
-        {"collective", vec_str{"default_plural"}}, {"collective_plural", vec_str{"default_collective_plural"}}
+        {"generic", vec_str{"DEFAULT_SPECIES_GENERIC"}}, {"generic_plural", vec_str{"DEFAULT_SPECIES_GENERIC_PLURAL"}}, 
+        {"male", vec_str{"DEFAULT_SPECIES_MALE"}}, {"male_plural", vec_str{"DEFAULT_SPECIES_MALES"}}, 
+        {"female", vec_str{"DEFAULT_SPECIES_FEMALE"}}, {"female_plural", vec_str{"dEFAULT_SPECIES_FEMALES"}},
+        {"child", vec_str{"DEFAULT_SPECIES_CHILD"}}, {"child_plural", vec_str{"DEFAULT_SPECIES_CHILD_PLURAL"}},
+        {"collective", vec_str{"DEFAULT_SPECIES_PLURAL"}}, {"collective_plural", vec_str{"DEFAULT_SPECIES_COLLECTIVE_PLURAL"}}
     }; 
 };
 

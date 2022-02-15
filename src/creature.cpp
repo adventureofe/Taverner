@@ -19,7 +19,7 @@ Creature::Creature()
   this->species = new Species();
   this->element_1 = new Element();
   this->element_2 = new Element();
-  this->name = "default_name the " + this->element_1->name + " " + this->species->noun["generic"][0];
+  this->name = "DEFAULT_NAME the " + this->element_1->name + " " + this->species->noun["generic"][0];
   
 }
 
