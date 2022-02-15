@@ -4,6 +4,8 @@ By theadventureofe(John Gormley)
 
 species header file
 
+each creature will have 1 species
+
 the_adventure_of_e λ
 */
 
@@ -59,4 +61,4 @@ class Species
 };
 
 // main map for all species
-extern std::map <std::string, Species*> species;
+extern std::map <std::string, Species*> species_map;

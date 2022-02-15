@@ -50,4 +50,4 @@ class Element
 };
 
 // main map for all elements
-extern std::map<std::string, Element*> elements;
+extern std::map<std::string, Element*> element_map;

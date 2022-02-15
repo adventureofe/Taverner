@@ -644,7 +644,7 @@ Element water = Element(
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 //map of all available elements
-std::map<std::string, Element*> elements = 
+std::map<std::string, Element*> element_map = 
 {
     {"alien", &alien},
     {"air", &air},

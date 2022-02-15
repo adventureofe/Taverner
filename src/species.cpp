@@ -453,7 +453,7 @@ Species zebra = Species(
 
 //Generate map for all species
 //this may be better as smart pointers (don't know how to do that)
-std::map<std::string, Species*> species = {
+std::map<std::string, Species*> species_map = {
   {"aardvark", &aardvark},
   {"angel", &angel},
   {"demon", &demon},
