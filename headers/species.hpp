@@ -7,6 +7,8 @@ species header file
 the_adventure_of_e λ
 */
 
+#pragma once
+
 #include <utility>
 #include <string>
 #include <map>
@@ -46,9 +48,13 @@ class Species
   public:
   Species(Weight weight, Length length, std::vector<std::string> subtypes, Nouns nouns);
   Species();
+  
 
   std::map <std::string, int> weight;
   std::map <std::string, int> length;
   std::vector<std::string> subtypes;
   std::map <std::string, std::vector<std::string>> noun;
 };
+
+  //main map for all species
+extern std::map <std::string, Species*> species;
