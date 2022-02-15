@@ -263,6 +263,36 @@ Species dwarf = Species (
     }
 );
 
+Species elephant = Species (   
+    Weight {.min = 6000000, .max = 10000000},
+    Length {.min = 3130, .max = 3960},
+    
+    std::vector<Subtype*>
+    {
+        subtype_map["mammal"],
+        subtype_map["humanoid"],
+        subtype_map["primate"],
+        subtype_map["ape"],
+        subtype_map["burrower"],
+        subtype_map["runner"]
+    },
+    
+    Nouns 
+    {
+        .generic           = vec_str{"elephant"}, 
+        .generic_plural    = vec_str{"elephants"},
+        .male              = vec_str{"bull elephant"},
+        .male_plural       = vec_str{"bull elephants"},
+        .female            = vec_str{},
+        .female_plural     = vec_str{},
+        .child             = vec_str{"calf"},
+        .child_plural      = vec_str{"calves"},
+        .collective        = vec_str{"herd", "tribe", "group"},
+        .collective_plural = vec_str{"herds", "tribes", "groups"}
+    }
+);
+
+
 Species frog = Species(   
     Weight {.min = 22, .max = 29},
     Length {.min = 60, .max = 90},
@@ -651,6 +681,7 @@ std::map<std::string, Species*> species_map =
     {"demon", &demon},
     {"duck", &duck},
     {"dwarf", &dwarf},
+    {"elephant", &elephant},
     {"frog", &frog},
     {"gelatinous cube", &gelatinous_cube},
     {"goblin", &goblin},
