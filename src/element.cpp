@@ -87,6 +87,7 @@ void Element::print(){
 }
 
 //blueprints for all elements
+/////////////////////////////////////////////////////////////////////////////////////////////////
 Element alien = Element(
     "alien" ,
 
@@ -640,7 +641,9 @@ Element water = Element(
         .water = 0.5
     }
 );
+/////////////////////////////////////////////////////////////////////////////////////////////
 
+//map of all available elements
 std::map<std::string, Element*> elements = 
 {
     {"alien", &alien},
