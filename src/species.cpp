@@ -7,6 +7,7 @@ species source code
 the_adventure_of_e λ
 */
 
+#include <iostream>
 #include <utility>
 #include <string>
 #include <vector>
@@ -49,7 +50,21 @@ Species::Species(Weight weight, Length length, std::vector<std::string> subtypes
   }; 
 }
 
-//map to hold all species
+void Species::print(){
+ std::cout << "Name:( " << this->noun["generic"][0] << " )\n";
+ std::cout << "Weight:( " << this->weight["min"] << " - " << this->weight["max"] << " )\n";
+ std::cout << "Length:( " << this->length["min"] << " - " << this->length["max"] << " )\n";
+
+ std::cout << "subtypes:( ";
+ std::for_each(this->subtypes.begin(), this->subtypes.end(),
+     [](std::string const& i)
+     {
+         std::cout << i << " ";
+     });
+ std::cout << ")\n";
+               
+}
+
 
 // large section for creating blueprints for all available prebaked species
 //these wil be added to a map at the bottom once all are declared

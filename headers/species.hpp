@@ -48,6 +48,8 @@ class Species
   public:
   Species(Weight weight, Length length, std::vector<std::string> subtypes, Nouns nouns);
   Species();
+
+  void print();
   
 
   std::map <std::string, int> weight;

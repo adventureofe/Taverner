@@ -31,14 +31,10 @@ void arg_print(int argc, char** argv)
 int main (int argc, char** argv)
 {
     arg_print(argc, argv);
+
+    species["zebra"]->print();
   
     //test print statements for maps ALL WORKING
-    std::cout << species["vampire"]->length["max"] << "\n";
-    std::cout << species["dwarf"]->noun["generic_plural"][0] << "\n";
-    std::cout << species["human"]->subtypes[0] << "\n";
-    //std::cout << species["orc"]->noun["collective_plural"][0] << "\n";
-    //std::cout << species["frog"]->subtypes[0] << "\n";
-    
 /*  
     //print all keys and some values (not completed yet)
     for (auto const& [key, val] : species)
@@ -46,27 +42,6 @@ int main (int argc, char** argv)
         std::cout << "key-name (" << key << ")\n";
         std::cout << "weight (" << val->weight["min"] << " - " << val->weight["max"] << ") \n";
         std::cout << "length (" << val->length["min"] << " - " << val->length["max"] << ") \n";
-
-        std::cout << "subtypes ( ";
-        
-        std::for_each(val->subtypes.begin(), val->subtypes.end(),
-            [](std::string const& i)
-            {
-                std::cout << i << " ";
-            });
-        
-        std::cout << ") \n";
-
-        std::cout << "names ( ";
-        
-        std::for_each(val->noun["generic"].begin(), val->noun["generic"].end(),
-            [](std::string const& i)
-            {
-                std::cout << i << " ";
-            });
-
-        std::cout << ") \n";        
-        std::cout << "\n"; 
     }
 */
     return 0;
