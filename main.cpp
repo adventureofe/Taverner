@@ -49,14 +49,14 @@ int main (int argc, char** argv)
     // creature_test.element_1->print();
 
     //testing created creature
-    Creature ice_water_penguin = Creature("Jacob", "tiger", "shadow", "earth");
-    std::cout << ice_water_penguin.name << "\n\n";
+    Creature test = Creature("Jacob", "tiger", "shadow", "earth");
+    std::cout << test.name << "\n\n";
 
     //using the print function of the internal species of creature
-    ice_water_penguin.species->print();
+    test.species->print();
 
     //using the print function of the interal eleement of creature
-    ice_water_penguin.element_1->print();
+    test.element_1->print();
    
     return 0;
 }
