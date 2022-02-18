@@ -1,4 +1,4 @@
-/* taverner
+/* tAverner
 
 By theadventureofe(John Gormley)
 
@@ -36,7 +36,7 @@ Species::Species()
 };
 
 //constructor for species
-Species::Species(Weight weight, Length length, std::vector<Subtype*> subtypes, Nouns nouns) 
+Species::Species(Weight weight, Length length, std::vector<Subtype*> subtypes, Nouns nouns, Stats stats) 
 {
     this->weight = {{"min", weight.min}, {"max", weight.max}};
     this->length = {{"min", length.min}, {"max", length.max}};
@@ -44,12 +44,20 @@ Species::Species(Weight weight, Length length, std::vector<Subtype*> subtypes, N
     
     this->noun = 
     {
-        {"generic", nouns.generic}, {"generic_plural", nouns.generic_plural}, 
-        {"male", nouns.male}, {"male_plural", nouns.male_plural}, 
-        {"female", nouns.female}, {"female_plural", nouns.female_plural},
-        {"child", nouns.child}, {"child_plural", nouns.child_plural},
-        {"collective", nouns.collective}, {"collective_plural", nouns.collective_plural}
-    }; 
+        {"generic", nouns.generic}, {"generic  plural", nouns.generic_plural}, 
+        {"male", nouns.male}, {"male plural", nouns.male_plural}, 
+        {"female", nouns.female}, {"female plural", nouns.female_plural},
+        {"child", nouns.child}, {"child plural", nouns.child_plural},
+        {"collective", nouns.collective}, {"collective plural", nouns.collective_plural}
+    };
+
+    this->stat = 
+    {
+        {"hp", stats.hp},
+        {"atk", stats.atk}, {"def", stats.def},
+        {"specal_atk", stats.special_atk}, {"special_def", stats.special_def},
+        {"speed", stats.speed}
+    };
 }
 
 void Species::print()
@@ -67,8 +75,18 @@ void Species::print()
             std::cout << i->name << " ";
         }
     );
+    std::cout << " )\n";
+    
+    std::cout << "Stats:(\n";
+    
+    for (const auto& [key, value] : this->stat)
+    {
+        std::cout << "    " << key << " : " << value << "\n";
+    }
 
-    std::cout << " )\n\n";           
+    std::cout << ")\n";
+
+    std::cout << "\n";
 }
 
 // large section for creating blueprints for all available prebaked species
@@ -97,6 +115,17 @@ Species aardvark = Species(
         .child_plural      = vec_str{"aardvarklets"},
         .collective        = vec_str{"armoury", "group"},
         .collective_plural = vec_str{"armouries", "groups"}
+    },
+    
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
  
@@ -123,6 +152,17 @@ Species angel = Species(
         .child_plural      = vec_str{"wisps"},
         .collective        = vec_str{"choir", "group"},
         .collective_plural = vec_str{"choirs", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -149,6 +189,17 @@ Species banshee = Species(
         .child_plural      = vec_str{"wisps"},
         .collective        = vec_str{"haunting", "group"},
         .collective_plural = vec_str{"hauntings", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -178,6 +229,17 @@ Species chimpanzee = Species (
         .child_plural      = vec_str{"children", "youngsters", "chimplets"},
         .collective        = vec_str{"tribe", "group"},
         .collective_plural = vec_str{"tribes", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -205,6 +267,17 @@ Species demon = Species(
         .child_plural      = vec_str{"demonlings"},
         .collective        = vec_str{"legion", "group"},
         .collective_plural = vec_str{"legions", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -231,6 +304,17 @@ Species duck = Species(
         .child_plural      = vec_str{"ducklings", "fledlings"},
         .collective        = vec_str{"flock", "group"},
         .collective_plural = vec_str{"flocks", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -260,6 +344,17 @@ Species dwarf = Species (
         .child_plural      = vec_str{"youngsters", "wee-uns", "children"},
         .collective        = vec_str{"tribe", "group"},
         .collective_plural = vec_str{"tribes", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -289,6 +384,17 @@ Species elephant = Species (
         .child_plural      = vec_str{"calves"},
         .collective        = vec_str{"herd", "tribe", "group"},
         .collective_plural = vec_str{"herds", "tribes", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -317,6 +423,17 @@ Species frog = Species(
         .child_plural      = vec_str{"polliwogs", "tadpoles", "froglings"},
         .collective        = vec_str{"army", "group"},
         .collective_plural = vec_str{"armies", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -343,6 +460,17 @@ Species gelatinous_cube = Species(
         .child_plural      = vec_str{"cubelets" "cubelings"},
         .collective        = vec_str{"mire", "army", "group"},
         .collective_plural = vec_str{"mires", "armies", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -370,6 +498,17 @@ Species goblin = Species(
         .child_plural      = vec_str{"goblings", "youngsters"},
         .collective        = vec_str{"horde", "group"},
         .collective_plural = vec_str{"hordes", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -397,6 +536,17 @@ Species gremlin = Species(
         .child_plural      = vec_str{"gremlings", "gremlets"},
         .collective        = vec_str{"horde", "group"},
         .collective_plural = vec_str{"hordes", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -426,6 +576,17 @@ Species human = Species (
         .child_plural      = vec_str{"children", "kids", "youngsters"},
         .collective        = vec_str{"tribe", "group"},
         .collective_plural = vec_str{"tribes", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -454,6 +615,17 @@ Species ogre = Species(
       .child_plural      = vec_str{"ogrelings"},
       .collective        = vec_str{"stampede", "group"},
       .collective_plural = vec_str{"stampede", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -482,6 +654,17 @@ Species orc = Species(
       .child_plural      = vec_str{"orclings", "children", "youngsters"},
       .collective        = vec_str{"clan", "group"},
       .collective_plural = vec_str{"clans", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -509,6 +692,17 @@ Species owl = Species(
         .child_plural      = vec_str{"fledglings"},
         .collective        = vec_str{"flock", "group"},
         .collective_plural = vec_str{"flocks", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -535,6 +729,17 @@ Species pigeon = Species(
         .child_plural      = vec_str{"chicks" "hatchlings"},
         .collective        = vec_str{"squab", "flock", "group"},
         .collective_plural = vec_str{"squabs", "flocks", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -560,9 +765,19 @@ Species penguin = Species(
         .child_plural      = vec_str{"chicks" "hatchlings"},
         .collective        = vec_str{"raft", "group"},
         .collective_plural = vec_str{"rafts", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
-
 
 Species slime = Species(   
     Weight {.min = 6000, .max = 8040},
@@ -586,6 +801,53 @@ Species slime = Species(
         .child_plural      = vec_str{"slimelets", "slimelings"},
         .collective        = vec_str{"mire", "army", "group"},
         .collective_plural = vec_str{"mires", "armies", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
+    }
+);
+
+Species tiger = Species(   
+    Weight {.min = 206000, .max = 210040},
+    Length {.min = 1780, .max = 2080},
+        
+    std::vector<Subtype*>
+    { 
+        subtype_map["feline"],
+        subtype_map["runner"]
+    },
+    
+    Nouns 
+    {
+        .generic           = vec_str{"tiger"}, 
+        .generic_plural    = vec_str{"tigers"},
+        .male              = vec_str{},
+        .male_plural       = vec_str{},
+        .female            = vec_str{"tigress"},
+        .female_plural     = vec_str{"tigresses"},
+        .child             = vec_str{"cub", "kitten"},
+        .child_plural      = vec_str{"cubs", "kittens"},
+        .collective        = vec_str{"streak", "group"},
+        .collective_plural = vec_str{"streaks", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -613,6 +875,17 @@ Species vampire = Species (
         .child_plural      = vec_str{"vamplings", "children"},
         .collective        = vec_str{"legion", "group"},
         .collective_plural = vec_str{"legions", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -640,6 +913,17 @@ Species wolf = Species(
         .child_plural      = vec_str{"cubs", "puppies", "pups"},
         .collective        = vec_str{"pack", "group"},
         .collective_plural = vec_str{"packs", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 
@@ -666,6 +950,17 @@ Species zebra = Species(
         .child_plural      = vec_str{"foals"},
         .collective        = vec_str{"herd", "group"},
         .collective_plural = vec_str{"herds", "groups"}
+    },
+
+    Stats
+    {
+      //default stats (remove this comment when updated)
+        .hp = 50,
+        .atk = 10,
+        .def = 10,
+        .special_atk = 10,
+        .special_def = 10,
+        .speed = 10
     }
 );
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -693,6 +988,7 @@ std::map<std::string, Species*> species_map =
     {"pigeon", &pigeon},
     {"penguin", &penguin},
     {"slime", &slime},
+    {"tiger", &tiger},
     {"vampire", &vampire},
     {"wolf", &wolf},
     {"zebra", &zebra}

@@ -34,6 +34,7 @@ Subtype crawler = Subtype("crawler");
 Subtype demon_subtype = Subtype("demon"); //added subtype suffix to stop linker error
 Subtype equine = Subtype("equine");
 Subtype fairy = Subtype("fairy");
+Subtype feline = Subtype("feline");
 Subtype flyer = Subtype("flyer");
 Subtype humanoid = Subtype("humanoid");
 Subtype jumper = Subtype("jumper");
@@ -62,6 +63,7 @@ std::map<std::string, Subtype*> subtype_map =
     {"demon", &demon_subtype},
     {"equine", &equine},
     {"fairy", &fairy},
+    {"feline", &feline},
     {"flyer", &flyer},
     {"humanoid", &humanoid},
     {"jumper", &jumper},

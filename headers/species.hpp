@@ -29,6 +29,16 @@ struct Length
   int max;
 };
 
+struct Stats
+{
+  int hp;
+  int atk;
+  int def;
+  int special_atk; 
+  int special_def; 
+  int speed;
+};
+
 //macro to shorten typing in this long ass template code
 #define vec_str std::vector<std::string>
 
@@ -49,7 +59,7 @@ struct Nouns
 class Species 
 {
   public:
-  Species(Weight weight, Length length, std::vector<Subtype*> subtypes, Nouns nouns);
+  Species(Weight weight, Length length, std::vector<Subtype*> subtypes, Nouns nouns, Stats stats);
   Species();
 
   void print();
@@ -59,6 +69,7 @@ class Species
   std::map <std::string, int> length;
   std::vector<Subtype*> subtypes;
   std::map <std::string, std::vector<std::string>> noun;
+  std::map <std::string, int> stat;
 };
 
 // main map for all species

@@ -32,24 +32,24 @@ int main (int argc, char** argv)
 {
     arg_print(argc, argv);
 
-    //print all data of zebra species
-    species_map["zebra"]->print();
+    // print all data of zebra species
+    // species_map["zebra"]->print();
 
-    //print all data of water element
-    element_map["water"]->print();
+    // print all data of water element
+    // element_map["water"]->print();
 
-    //testing default constructor
-    Creature creature_test = Creature();
-    std::cout << creature_test.name << "\n\n";
+    // testing default constructor
+    // Creature creature_test = Creature();
+    // std::cout << creature_test.name << "\n\n";
 
     //using the print function of the internal species of creature
-    creature_test.species->print();
+    // creature_test.species->print();
 
     //using the print function of the interal eleement of creature
-    creature_test.element_1->print();
+    // creature_test.element_1->print();
 
     //testing created creature
-    Creature ice_water_penguin = Creature("Graham", "penguin", "ice", "water");
+    Creature ice_water_penguin = Creature("Jacob", "tiger", "shadow", "earth");
     std::cout << ice_water_penguin.name << "\n\n";
 
     //using the print function of the internal species of creature
