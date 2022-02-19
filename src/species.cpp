@@ -102,27 +102,43 @@ void Species::print()
     std::cout << "\n";
 }
 
+
+std::vector<Subtype*> Species::set_subtypes(std::initializer_list<std::string> subtypes)
+{
+    std::vector<Subtype*> result;
+
+    for(std::string i : subtypes)
+    {
+      result.push_back(subtype_map[i]);
+    }
+
+    return result;
+}
+
+std::vector<Element*> Species::set_common_elements(std::initializer_list<std::string> elements)
+{   
+    std::vector<Element*> result;
+
+    for(std::string i : elements)
+    {
+      result.push_back(element_map[i]);
+    }
+  
+    return result;
+}
+
+
+
 // large section for creating blueprints for all available prebaked species
 //these wil be added to a map at the bottom once all are declared
 /////////////////////////////////////////////////////////////////////////////////////////////
 Species aardvark = Species(   
     Weight {.min = 60000, .max = 80000},
     Length {.min = 1050, .max = 1300},
-        
-    std::vector<Subtype*>
-    {
-       subtype_map["mammmal"],
-       subtype_map["burrower"],
-       subtype_map["runner"] 
-    },
 
-
-    std::vector<Element*>
-    {
-      element_map["earth"],
-      element_map["normal"],
-      element_map["metal"],
-    },
+    Species::set_subtypes({"mammal", "burrower","runner"}),
+  
+    Species::set_common_elements({"earth", "normal", "metal"}),
 
     Nouns 
     {
@@ -153,24 +169,11 @@ Species aardvark = Species(
 Species angel = Species(   
     Weight {.min = 1, .max = 1},
     Length {.min = 1700, .max = 2000},
-        
-    std::vector<Subtype*>
-    {
-        subtype_map["spirit"],
-        subtype_map["humanoid"],
-        subtype_map["flyer"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["holy"],
-      element_map["air"],
-      element_map["water"],
-      element_map["fire"]
-    },
+    Species::set_subtypes({"spirit", "humanoid","flyer"}),
+  
+    Species::set_common_elements({"holy", "air", "water", "fire"}),
 
-
-    
     Nouns 
     {
         .generic           = vec_str{"angel", "spirit"}, 
@@ -200,22 +203,11 @@ Species angel = Species(
 Species banshee = Species(   
     Weight {.min = 1, .max = 1},
     Length {.min = 1220, .max = 1440},
-        
-    std::vector<Subtype*>
-    {
-        subtype_map["spirit"],
-        subtype_map["humanoid"],
-        subtype_map["flyer"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["shadow"],
-      element_map["evil"],
-      element_map["ice"],
-      element_map["magic"]
-    },
- 
+    Species::set_subtypes({"spirit", "humanoid","flyer"}),
+  
+    Species::set_common_elements({"shadow", "evil", "ice", "magic"}),
+
     Nouns 
     {
         .generic           = vec_str{"banshee", "ghoul"}, 
@@ -246,22 +238,10 @@ Species banshee = Species(
 Species chimpanzee = Species (   
     Weight {.min = 40000, .max = 70000},
     Length {.min = 1500, .max = 1680},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["mammal"],
-        subtype_map["humanoid"],
-        subtype_map["primate"],
-        subtype_map["ape"],
-        subtype_map["climber"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["chaos"],
-      element_map["plant"],
-      element_map["normal"]
-    },
+    Species::set_subtypes({"mammal", "humanoid", "primate", "ape", "climber"}),
+  
+    Species::set_common_elements({"chaos", "plant", "normal"}),
  
     Nouns 
     {
@@ -292,22 +272,10 @@ Species chimpanzee = Species (
 Species demon = Species(   
     Weight {.min = 1, .max = 1},
     Length {.min = 1700, .max = 2000},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["spirit"],
-        subtype_map["demon"],
-        subtype_map["humanoid"],
-        subtype_map["flyer"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["evil"],
-      element_map["shadow"],
-      element_map["magic"],
-      element_map["fire"]
-    },
+    Species::set_subtypes({"spirit", "demon", "humanoid", "flyer"}),
+  
+    Species::set_common_elements({"evil", "shadow", "magic", "fire"}),
 
     Nouns 
     {
@@ -338,21 +306,11 @@ Species demon = Species(
 Species duck = Species(   
     Weight {.min = 720, .max = 1600},
     Length {.min = 500, .max = 650},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["bird"],
-        subtype_map["flyer"],
-        subtype_map["swimmer"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["water"],
-      element_map["air"],
-      element_map["normal"],
-    },
-    
+    Species::set_subtypes({"bird", "flyer", "swimmer"}),
+  
+    Species::set_common_elements({"water", "air", "normal"}),
+ 
     Nouns 
     {
         .generic           = vec_str{"duck", "ducky"}, 
@@ -382,24 +340,10 @@ Species duck = Species(
 Species dwarf = Species (   
     Weight {.min = 44000, .max = 55000},
     Length {.min = 1030, .max = 1310},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["mammal"],
-        subtype_map["humanoid"],
-        subtype_map["primate"],
-        subtype_map["ape"],
-        subtype_map["burrower"],
-        subtype_map["runner"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["earth"],
-      element_map["evil"],
-      element_map["holy"],
-      element_map["chaos"]
-    },
+    Species::set_subtypes({"mammal", "humanoid", "primate", "ape", "burrower", "runner"}),
+  
+    Species::set_common_elements({"earth", "evil", "holy", "chaos"}),
  
     Nouns 
     {
@@ -430,24 +374,11 @@ Species dwarf = Species (
 Species elephant = Species (   
     Weight {.min = 6000000, .max = 10000000},
     Length {.min = 3130, .max = 3960},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["mammal"],
-        subtype_map["humanoid"],
-        subtype_map["primate"],
-        subtype_map["ape"],
-        subtype_map["burrower"],
-        subtype_map["runner"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["earth"],
-      element_map["plant"],
-      element_map["normal"]
-    },
- 
+    Species::set_subtypes({"mammal", "wanderer", "runner"}),
+  
+    Species::set_common_elements({"earth", "plant", "normal"}),
+
     Nouns 
     {
         .generic           = vec_str{"elephant"}, 
@@ -478,22 +409,11 @@ Species elephant = Species (
 Species frog = Species(   
     Weight {.min = 22, .max = 29},
     Length {.min = 60, .max = 90},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["amphibian"],
-        subtype_map["slime"],
-        subtype_map["swimmer"],
-        subtype_map["jumper"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["mutant"],
-      element_map["poison"],
-      element_map["water"]
-    },
- 
+    Species::set_subtypes({"amphibian", "slime", "swimmer", "jumper"}),
+  
+    Species::set_common_elements({"mutant", "poison", "water"}),
+
     Nouns 
     {
         .generic           = vec_str{"frog", "froggy", "toad"}, 
@@ -523,20 +443,10 @@ Species frog = Species(
 Species gelatinous_cube = Species(   
     Weight {.min = 200000, .max = 300000},
     Length {.min = 2000, .max = 3000},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["slime"],
-        subtype_map["crawler"],
-        subtype_map["monster"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["poison"],
-      element_map["chaos"],
-      element_map["undead"]
-    },
+    Species::set_subtypes({"slime", "crawler", "monster"}),
+  
+    Species::set_common_elements({"poison", "chaos", "undead"}),
  
     Nouns 
     {
@@ -567,21 +477,10 @@ Species gelatinous_cube = Species(
 Species goblin = Species(   
     Weight {.min = 40000, .max = 650000},
     Length {.min = 1030, .max = 1400},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["orcish"],
-        subtype_map["humanoid"],
-        subtype_map["ape"],
-        subtype_map["runner"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["evil"],
-      element_map["magic"],
-      element_map["earth"]
-    },
+    Species::set_subtypes({"orcish", "humanoid", "ape", "runner"}),
+  
+    Species::set_common_elements({"evil", "magic", "earth"}),
  
     Nouns 
     {
@@ -612,24 +511,11 @@ Species goblin = Species(
 Species gremlin = Species(   
     Weight {.min = 12000, .max = 15000},
     Length {.min = 714, .max = 1090},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["orcish"],
-        subtype_map["humanoid"],
-        subtype_map["fairy"], 
-        subtype_map["runner"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["chaos"],
-      element_map["poison"],
-      element_map["evil"],
-      element_map["shadow"],
-      element_map["magic"]
-    },
-    
+    Species::set_subtypes({"orcish", "humanoid", "fairy", "runner"}),
+  
+    Species::set_common_elements({"chaos", "poison", "evil", "shadow", "magic"}),
+
     Nouns 
     {
         .generic           = vec_str{"gremlin"}, 
@@ -659,25 +545,11 @@ Species gremlin = Species(
 Species human = Species (   
     Weight {.min = 59000, .max = 77000},
     Length {.min = 1590, .max = 1710},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["mammal"],
-        subtype_map["humanoid"],
-        subtype_map["primate"],
-        subtype_map["ape"],
-        subtype_map["wanderer"],
-        subtype_map["runner"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["normal"],
-      element_map["holy"],
-      element_map["evil"],
-      element_map["mutant"]
-    },
- 
+    Species::set_subtypes({"mammal", "humanoid", "primate", "ape", "wanderer", "runner"}),
+  
+    Species::set_common_elements({"normal", "holy", "evil", "mutant"}),
+
     Nouns
     {
         .generic           = vec_str{"human", "person"}, 
@@ -708,24 +580,10 @@ Species ogre = Species(
     Weight {.min = 110000, .max = 190000},
     Length {.min = 2105, .max = 2560},
     
-    std::vector<Subtype*> 
-    {
-        subtype_map["orcish"],
-        subtype_map["humanoid"],
-        subtype_map["monster"],
-        subtype_map["nocturnal"],
-        subtype_map["runner"]
-    },
+    Species::set_subtypes({"orcish", "humanoid", "monster", "nocturnal", "runner"}),
+  
+    Species::set_common_elements({"earth", "evil", "ice", "plant", "normal"}),
 
-    std::vector<Element*>
-    {
-      element_map["earth"],
-      element_map["evil"],
-      element_map["ice"], 
-      element_map["plant"],
-      element_map["normal"]
-    },
- 
     Nouns 
     {
       .generic           = vec_str{"ogre"}, 
@@ -755,24 +613,11 @@ Species ogre = Species(
 Species orc = Species(   
     Weight {.min = 70000, .max = 100000},
     Length {.min = 1790, .max = 2090},
-    
-    std::vector<Subtype*> 
-    {
-        subtype_map["orcish"],
-        subtype_map["humanoid"],
-        subtype_map["monster"],
-        subtype_map["demon"],
-        subtype_map["runner"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["alien"],
-      element_map["earth"],
-      element_map["chaos"],
-      element_map["normal"]
-    },
- 
+    Species::set_subtypes({"orcish", "humanoid", "monster", "demon", "runner"}),
+  
+    Species::set_common_elements({"alien", "earth", "chaos", "normal"}),
+
     Nouns 
     {
       .generic           = vec_str{"orc", "person"}, 
@@ -802,22 +647,11 @@ Species orc = Species(
 Species owl = Species(   
     Weight {.min = 260, .max = 555},
     Length {.min = 333, .max = 391},
-    
-    std::vector<Subtype*> 
-    {
-        subtype_map["bird"],
-        subtype_map["flyer"],
-        subtype_map["bird of prey"],
-        subtype_map["nocturnal"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["air"],
-      element_map["shadow"],
-      element_map["holy"]
-    },
- 
+    Species::set_subtypes({"bird", "flyer", "bird of prey", "nocturnal"}),
+  
+    Species::set_common_elements({"air", "shadow", "holy"}),
+
     Nouns 
     {
         .generic           = vec_str{"owl"}, 
@@ -847,22 +681,11 @@ Species owl = Species(
 Species pigeon = Species(   
     Weight {.min = 238, .max = 381},
     Length {.min = 290, .max = 375},
+
+    Species::set_subtypes({"bird", "flyer", "vermin"}),
+  
+    Species::set_common_elements({"air", "poison", "mutant", "nuclear"}),
     
-    std::vector<Subtype*>
-    {
-        subtype_map["bird"],
-        subtype_map["flyer"],
-        subtype_map["vermin"]
-    },
-
-    std::vector<Element*>
-    {
-      element_map["air"],
-      element_map["poison"],
-      element_map["mutant"],
-      element_map["nuclear"]
-    },
-
     Nouns 
     {
         .generic           = vec_str{"pigeon", "rock-dove"}, 
@@ -892,20 +715,11 @@ Species pigeon = Species(
 Species penguin = Species(   
     Weight {.min = 2200, .max = 4500},
     Length {.min = 800, .max = 1000},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["bird"],
-        subtype_map["swimmer"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["ice"],
-      element_map["water"],
-      element_map["evil"]
-    },
-    
+    Species::set_subtypes({"bird", "swimmer"}),
+  
+    Species::set_common_elements({"ice", "water", "evil"}),
+
     Nouns 
     {
         .generic           = vec_str{"penguin"}, 
@@ -935,23 +749,11 @@ Species penguin = Species(
 Species slime = Species(   
     Weight {.min = 6000, .max = 8040},
     Length {.min = 500, .max = 1010},
-        
-    std::vector<Subtype*>
-    { 
-        subtype_map["slime"],
-        subtype_map["crawler"],
-        subtype_map["vermin"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["poison"],
-      element_map["alien"],
-      element_map["mutant"],
-      element_map["nuclear"],
-      element_map["evil"]
-    },
-    
+    Species::set_subtypes({"slime", "crawler", "vermin"}),
+  
+    Species::set_common_elements({"poison", "alien", "mutant", "evil", "nuclear"}),
+
     Nouns 
     {
         .generic           = vec_str{"slime"}, 
@@ -981,18 +783,10 @@ Species slime = Species(
 Species tiger = Species(   
     Weight {.min = 206000, .max = 210040},
     Length {.min = 1780, .max = 2080},
-        
-    std::vector<Subtype*>
-    { 
-        subtype_map["feline"],
-        subtype_map["runner"]
-    },
-
-    std::vector<Element*>
-    {
-      element_map["normal"],
-      element_map["holy"]
-    },
+    
+    Species::set_subtypes({"feline", "runner"}),
+  
+    Species::set_common_elements({"normal", "holy"}),
 
     Nouns 
     {
@@ -1023,23 +817,11 @@ Species tiger = Species(
 Species vampire = Species (   
     Weight {.min = 59000, .max = 77000},
     Length {.min = 1590, .max = 1710},
-    
-    std::vector<Subtype*>
-    {
-        subtype_map["spirit"],
-        subtype_map["humanoid"],
-        subtype_map["primate"],
-        subtype_map["flyer"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["undead"],
-      element_map["evil"],
-      element_map["shadow"],
-      element_map["magic"]
-    },
-    
+    Species::set_subtypes({"spirit", "humanoid", "primate", "flyer"}),
+  
+    Species::set_common_elements({"undead", "evil", "shadow", "magic"}),
+
     Nouns 
     {
         .generic           = vec_str{"vampire", "bloodsucker"}, 
@@ -1069,21 +851,10 @@ Species vampire = Species (
 Species wolf = Species(   
     Weight {.min = 39000, .max = 69000},
     Length {.min = 1050, .max = 1600},
-    
-    std::vector<Subtype*> 
-    {
-        subtype_map["mammal"],
-        subtype_map["canine"],
-        subtype_map["wanderer"],
-        subtype_map["runner"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["shadow"],
-      element_map["normal"],
-      element_map["evil"]
-    },
+    Species::set_subtypes({"mammal", "canine", "wanderer", "runner"}),
+  
+    Species::set_common_elements({"shadow", "normal", "evil"}),
  
     Nouns 
     {
@@ -1114,21 +885,11 @@ Species wolf = Species(
 Species zebra = Species(   
     Weight {.min = 352000, .max = 450000},
     Length {.min = 2500, .max = 3000},
-    
-    std::vector<Subtype*> 
-    {
-        subtype_map["mammal"],
-        subtype_map["equine"], 
-        subtype_map["runner"]
-    },
 
-    std::vector<Element*>
-    {
-      element_map["normal"],
-      element_map["earth"],
-      element_map["electric"]
-    },
-    
+    Species::set_subtypes({"mammal", "equine", "runner"}),
+  
+    Species::set_common_elements({"normal", "earth", "electric"}),
+
     Nouns 
     {
         .generic           = vec_str{"zebra", "horse"}, 

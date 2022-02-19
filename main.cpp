@@ -49,7 +49,7 @@ int main (int argc, char** argv)
     // creature_test.element_1->print();
 
     //testing created creature
-    Creature test = Creature("Jacob", "tiger", "shadow", "earth");
+    Creature test = Creature("Jacob", "gelatinous cube", "shadow", "earth");
     std::cout << test.name << "\n\n";
 
     //using the print function of the internal species of creature

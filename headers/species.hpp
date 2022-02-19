@@ -14,6 +14,7 @@ the_adventure_of_e λ */
 #include <string>
 #include <map>
 #include <vector>
+#include <initializer_list>
 
 #include "subtype.hpp"
 #include "element.hpp"
@@ -62,7 +63,9 @@ class Species
   public:
   Species(Weight weight, Length length, std::vector<Subtype*> subtypes, std::vector<Element*> common_elemnts, Nouns nouns, Stats stats);
   Species();
-
+  
+  static std::vector<Subtype*> set_subtypes(std::initializer_list<std::string> subtypes);
+  static std::vector<Element*> set_common_elements(std::initializer_list<std::string> elements);
   void print();
   
 
@@ -76,3 +79,4 @@ class Species
 
 // main map for all species
 extern std::map <std::string, Species*> species_map;
+
