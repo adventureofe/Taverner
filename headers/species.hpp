@@ -16,6 +16,7 @@ the_adventure_of_e λ */
 #include <vector>
 
 #include "subtype.hpp"
+#include "element.hpp"
 
 struct Weight
 {
@@ -59,7 +60,7 @@ struct Nouns
 class Species 
 {
   public:
-  Species(Weight weight, Length length, std::vector<Subtype*> subtypes, Nouns nouns, Stats stats);
+  Species(Weight weight, Length length, std::vector<Subtype*> subtypes, std::vector<Element*> common_elemnts, Nouns nouns, Stats stats);
   Species();
 
   void print();
@@ -68,6 +69,7 @@ class Species
   std::map <std::string, int> weight;
   std::map <std::string, int> length;
   std::vector<Subtype*> subtypes;
+  std::vector<Element*> common_elements;
   std::map <std::string, std::vector<std::string>> noun;
   std::map <std::string, int> stat;
 };

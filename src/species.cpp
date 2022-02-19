@@ -11,7 +11,9 @@ the_adventure_of_e λ */
 #include <string>
 #include <vector>
 
+
 #include "../headers/subtype.hpp"
+#include "../headers/element.hpp"
 #include "../headers/species.hpp"
 
 //macro to shorten typing in this long ass template code
@@ -24,6 +26,8 @@ Species::Species()
     this->length = {{"min", 1}, {"max", 1}};
 
     this->subtypes = std::vector<Subtype*> {new Subtype()};
+
+    this->common_elements = std::vector<Element*> {new Element()};
  
     this->noun = 
     {
@@ -36,11 +40,12 @@ Species::Species()
 };
 
 //constructor for species
-Species::Species(Weight weight, Length length, std::vector<Subtype*> subtypes, Nouns nouns, Stats stats) 
+Species::Species(Weight weight, Length length, std::vector<Subtype*> subtypes, std::vector<Element*> common_elements, Nouns nouns, Stats stats) 
 {
     this->weight = {{"min", weight.min}, {"max", weight.max}};
     this->length = {{"min", length.min}, {"max", length.max}};
     this->subtypes = subtypes;
+    this->common_elements = common_elements;
     
     this->noun = 
     {
@@ -68,13 +73,21 @@ void Species::print()
     std::cout << "Length:( " << this->length["min"] << " - " << this->length["max"] << " )\n";
     
     std::cout << "Subtype:( ";
-
     std::for_each(this->subtypes.begin(), this->subtypes.end(),
         [](Subtype* const& i)
         {
             std::cout << i->name << " ";
         }
-    );
+    ); 
+    std::cout << " )\n";
+
+    std::cout << "Common Elements:( ";
+    std::for_each(this->common_elements.begin(), this->common_elements.end(),
+        [](Element* const& i)
+        {
+            std::cout << i->name << " ";
+        }
+    ); 
     std::cout << " )\n";
     
     std::cout << "Stats:(\n";
@@ -101,7 +114,15 @@ Species aardvark = Species(
        subtype_map["mammmal"],
        subtype_map["burrower"],
        subtype_map["runner"] 
-    },   
+    },
+
+
+    std::vector<Element*>
+    {
+      element_map["earth"],
+      element_map["normal"],
+      element_map["metal"],
+    },
 
     Nouns 
     {
@@ -139,6 +160,16 @@ Species angel = Species(
         subtype_map["humanoid"],
         subtype_map["flyer"]
     },
+
+    std::vector<Element*>
+    {
+      element_map["holy"],
+      element_map["air"],
+      element_map["water"],
+      element_map["fire"]
+    },
+
+
     
     Nouns 
     {
@@ -176,7 +207,15 @@ Species banshee = Species(
         subtype_map["humanoid"],
         subtype_map["flyer"]
     },
-    
+
+    std::vector<Element*>
+    {
+      element_map["shadow"],
+      element_map["evil"],
+      element_map["ice"],
+      element_map["magic"]
+    },
+ 
     Nouns 
     {
         .generic           = vec_str{"banshee", "ghoul"}, 
@@ -215,8 +254,15 @@ Species chimpanzee = Species (
         subtype_map["primate"],
         subtype_map["ape"],
         subtype_map["climber"]
-    }, 
-    
+    },
+
+    std::vector<Element*>
+    {
+      element_map["chaos"],
+      element_map["plant"],
+      element_map["normal"]
+    },
+ 
     Nouns 
     {
         .generic           = vec_str{"chimpanzee", "chimp"}, 
@@ -255,6 +301,14 @@ Species demon = Species(
         subtype_map["flyer"]
     },
 
+    std::vector<Element*>
+    {
+      element_map["evil"],
+      element_map["shadow"],
+      element_map["magic"],
+      element_map["fire"]
+    },
+
     Nouns 
     {
         .generic           = vec_str{"demon"}, 
@@ -290,6 +344,13 @@ Species duck = Species(
         subtype_map["bird"],
         subtype_map["flyer"],
         subtype_map["swimmer"]
+    },
+
+    std::vector<Element*>
+    {
+      element_map["water"],
+      element_map["air"],
+      element_map["normal"],
     },
     
     Nouns 
@@ -331,7 +392,15 @@ Species dwarf = Species (
         subtype_map["burrower"],
         subtype_map["runner"]
     },
-    
+
+    std::vector<Element*>
+    {
+      element_map["earth"],
+      element_map["evil"],
+      element_map["holy"],
+      element_map["chaos"]
+    },
+ 
     Nouns 
     {
         .generic           = vec_str{"dwarf", "person"}, 
@@ -371,7 +440,14 @@ Species elephant = Species (
         subtype_map["burrower"],
         subtype_map["runner"]
     },
-    
+
+    std::vector<Element*>
+    {
+      element_map["earth"],
+      element_map["plant"],
+      element_map["normal"]
+    },
+ 
     Nouns 
     {
         .generic           = vec_str{"elephant"}, 
@@ -410,7 +486,14 @@ Species frog = Species(
         subtype_map["swimmer"],
         subtype_map["jumper"]
     },
-    
+
+    std::vector<Element*>
+    {
+      element_map["mutant"],
+      element_map["poison"],
+      element_map["water"]
+    },
+ 
     Nouns 
     {
         .generic           = vec_str{"frog", "froggy", "toad"}, 
@@ -447,7 +530,14 @@ Species gelatinous_cube = Species(
         subtype_map["crawler"],
         subtype_map["monster"]
     },
-    
+
+    std::vector<Element*>
+    {
+      element_map["poison"],
+      element_map["chaos"],
+      element_map["undead"]
+    },
+ 
     Nouns 
     {
         .generic           = vec_str{"gelatinous cube", "cube"}, 
@@ -485,7 +575,14 @@ Species goblin = Species(
         subtype_map["ape"],
         subtype_map["runner"]
     },
-    
+
+    std::vector<Element*>
+    {
+      element_map["evil"],
+      element_map["magic"],
+      element_map["earth"]
+    },
+ 
     Nouns 
     {
         .generic           = vec_str{"goblin"}, 
@@ -522,6 +619,15 @@ Species gremlin = Species(
         subtype_map["humanoid"],
         subtype_map["fairy"], 
         subtype_map["runner"]
+    },
+
+    std::vector<Element*>
+    {
+      element_map["chaos"],
+      element_map["poison"],
+      element_map["evil"],
+      element_map["shadow"],
+      element_map["magic"]
     },
     
     Nouns 
@@ -563,7 +669,15 @@ Species human = Species (
         subtype_map["wanderer"],
         subtype_map["runner"]
     },
-    
+
+    std::vector<Element*>
+    {
+      element_map["normal"],
+      element_map["holy"],
+      element_map["evil"],
+      element_map["mutant"]
+    },
+ 
     Nouns
     {
         .generic           = vec_str{"human", "person"}, 
@@ -602,7 +716,16 @@ Species ogre = Species(
         subtype_map["nocturnal"],
         subtype_map["runner"]
     },
-    
+
+    std::vector<Element*>
+    {
+      element_map["earth"],
+      element_map["evil"],
+      element_map["ice"], 
+      element_map["plant"],
+      element_map["normal"]
+    },
+ 
     Nouns 
     {
       .generic           = vec_str{"ogre"}, 
@@ -641,7 +764,15 @@ Species orc = Species(
         subtype_map["demon"],
         subtype_map["runner"]
     },
-    
+
+    std::vector<Element*>
+    {
+      element_map["alien"],
+      element_map["earth"],
+      element_map["chaos"],
+      element_map["normal"]
+    },
+ 
     Nouns 
     {
       .generic           = vec_str{"orc", "person"}, 
@@ -678,8 +809,15 @@ Species owl = Species(
         subtype_map["flyer"],
         subtype_map["bird of prey"],
         subtype_map["nocturnal"]
-    }, 
-    
+    },
+
+    std::vector<Element*>
+    {
+      element_map["air"],
+      element_map["shadow"],
+      element_map["holy"]
+    },
+ 
     Nouns 
     {
         .generic           = vec_str{"owl"}, 
@@ -715,8 +853,16 @@ Species pigeon = Species(
         subtype_map["bird"],
         subtype_map["flyer"],
         subtype_map["vermin"]
-    }, 
-    
+    },
+
+    std::vector<Element*>
+    {
+      element_map["air"],
+      element_map["poison"],
+      element_map["mutant"],
+      element_map["nuclear"]
+    },
+
     Nouns 
     {
         .generic           = vec_str{"pigeon", "rock-dove"}, 
@@ -751,7 +897,14 @@ Species penguin = Species(
     {
         subtype_map["bird"],
         subtype_map["swimmer"]
-    }, 
+    },
+
+    std::vector<Element*>
+    {
+      element_map["ice"],
+      element_map["water"],
+      element_map["evil"]
+    },
     
     Nouns 
     {
@@ -786,7 +939,17 @@ Species slime = Species(
     std::vector<Subtype*>
     { 
         subtype_map["slime"],
-        subtype_map["crawler"]
+        subtype_map["crawler"],
+        subtype_map["vermin"]
+    },
+
+    std::vector<Element*>
+    {
+      element_map["poison"],
+      element_map["alien"],
+      element_map["mutant"],
+      element_map["nuclear"],
+      element_map["evil"]
     },
     
     Nouns 
@@ -824,7 +987,13 @@ Species tiger = Species(
         subtype_map["feline"],
         subtype_map["runner"]
     },
-    
+
+    std::vector<Element*>
+    {
+      element_map["normal"],
+      element_map["holy"]
+    },
+
     Nouns 
     {
         .generic           = vec_str{"tiger"}, 
@@ -861,6 +1030,14 @@ Species vampire = Species (
         subtype_map["humanoid"],
         subtype_map["primate"],
         subtype_map["flyer"]
+    },
+
+    std::vector<Element*>
+    {
+      element_map["undead"],
+      element_map["evil"],
+      element_map["shadow"],
+      element_map["magic"]
     },
     
     Nouns 
@@ -899,8 +1076,15 @@ Species wolf = Species(
         subtype_map["canine"],
         subtype_map["wanderer"],
         subtype_map["runner"]
-    }, 
-    
+    },
+
+    std::vector<Element*>
+    {
+      element_map["shadow"],
+      element_map["normal"],
+      element_map["evil"]
+    },
+ 
     Nouns 
     {
         .generic           = vec_str{"wolf", "dog"}, 
@@ -936,6 +1120,13 @@ Species zebra = Species(
         subtype_map["mammal"],
         subtype_map["equine"], 
         subtype_map["runner"]
+    },
+
+    std::vector<Element*>
+    {
+      element_map["normal"],
+      element_map["earth"],
+      element_map["electric"]
     },
     
     Nouns 
