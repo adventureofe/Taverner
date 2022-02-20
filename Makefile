@@ -1,9 +1,10 @@
 CC = clang++
 CFLAGS = -std=c++20 -Wall -Wextra -pedantic
+LFLAGS = -lSDL2
 EXEC = taverner
 
 output: main.o element.o subtype.o species.o creature.o
-	$(CC) $(CFLAGS) main.o element.o subtype.o species.o creature.o -o $(EXEC)
+	$(CC) $(CFLAGS) $(LFLAGS) main.o element.o subtype.o species.o creature.o -o $(EXEC)
 
 main.o: main.cpp species.o
 	$(CC) -c $(CFLAGS) main.cpp

@@ -16,7 +16,7 @@ the_adventure_of_e λ */
 #include "../headers/element.hpp"
 #include "../headers/species.hpp"
 
-//macro to shorten typing in this long ass template code
+//macro to shorten typing in this long types
 #define vec_str std::vector<std::string>
 
 //default constructor for species with no arguments
@@ -65,6 +65,8 @@ Species::Species(Weight weight, Length length, std::vector<Subtype*> subtypes, s
     };
 }
 
+#define for_each_subtype std::for_each(this->subtypes.begin(), this->subtypes.end(), [](Subtype* const& i)
+
 void Species::print()
 {
     std::cout << "(SPECIES-PRINT)\n";
@@ -73,11 +75,11 @@ void Species::print()
     std::cout << "Length:( " << this->length["min"] << " - " << this->length["max"] << " )\n";
     
     std::cout << "Subtype:( ";
-    std::for_each(this->subtypes.begin(), this->subtypes.end(),
-        [](Subtype* const& i)
-        {
+    std::for_each(this->subtypes.begin(), this->subtypes.end(), 
+       [](Subtype* const& i)
+       {
             std::cout << i->name << " ";
-        }
+       }
     ); 
     std::cout << " )\n";
 
