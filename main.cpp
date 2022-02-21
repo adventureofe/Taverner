@@ -15,20 +15,67 @@ the_adventure_of_e λ */
 #include "headers/element.hpp"
 #include "headers/creature.hpp"
 
-
+//Screen dimension constants
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
+const char* SCREEN_TITLE = "taverner";
 
 void sdl_start(SDL_Window** window, SDL_Renderer** renderer)
 {
-    SDL_Init(SDL_INIT_EVERYTHING);
-    *window = SDL_CreateWindow("Hello", 200, 200, 200, 200, 0);
-    *renderer = SDL_CreateRenderer(*window, -1, SDL_RENDERER_ACCELERATED);
 
-    SDL_SetRenderDrawColor(*renderer, 0, 0, 255, 255);
-    SDL_RenderClear(*renderer);
-    SDL_SetRenderDrawColor(*renderer, 255, 255, 255, 255);
+    //start SDL
+    if( SDL_Init( SDL_INIT_EVERYTHING ) < 0 )
+    {
+        std::cout << "SDL_Init error: " <<  SDL_GetError() << "\n";
+    }
+    else
+    {
+        *window = SDL_CreateWindow(
+                                   SCREEN_TITLE,
+                                   SDL_WINDOWPOS_UNDEFINED,
+                                   SDL_WINDOWPOS_UNDEFINED,
+                                   SCREEN_WIDTH,
+                                   SCREEN_HEIGHT,
+                                   SDL_WINDOW_SHOWN);
+    }
+    
+    if( window == NULL )
+    {
+        std::cout << "SDL_CreateWindow error: " <<  SDL_GetError() << "\n";
+    }
+    else
+    {
+        *renderer = SDL_CreateRenderer(*window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    }
 
-    SDL_Rect rect = {20, 20, 20, 20};
-    SDL_RenderFillRect(*renderer, &rect);
+    if(renderer == nullptr)
+    {
+        std::cout << "SDL_CreateRenderer Error: " << SDL_GetError() << "\n";
+    } 
+    else
+    {
+
+        SDL_SetRenderDrawColor(*renderer, 0, 0, 255, 255);
+        SDL_RenderClear(*renderer);
+        SDL_SetRenderDrawColor(*renderer, 255, 255, 255, 255);
+        
+        SDL_Rect rect = {20, 20, 20, 20};
+        SDL_RenderFillRect(*renderer, &rect);
+    }
+}
+
+void test_rect(SDL_Renderer* renderer, int mover)
+{
+  
+    //refresh screen
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+    SDL_RenderClear(renderer);
+
+    //draw rect on screen
+    SDL_SetRenderDrawColor(renderer, 155, mover, mover/2, 255);
+    SDL_Rect rect = {mover, mover, mover, mover};
+    SDL_RenderFillRect(renderer, &rect);
+
 }
 
 void sdl_stop(SDL_Window* window, SDL_Renderer* renderer)
@@ -36,9 +83,6 @@ void sdl_stop(SDL_Window* window, SDL_Renderer* renderer)
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
 }
-
-
-
 
 // print all included cmd args (removes compiler warning)
 void arg_print(int argc, char** argv)
@@ -85,14 +129,44 @@ int main (int argc, char** argv)
     test.element_1->print();
 
     //SDL section
-    SDL_Window* window;
-    SDL_Renderer* renderer;
+    //the window we'll be rendering to
+    SDL_Window* window = NULL;
+
+    SDL_Renderer* renderer = NULL;
 
     sdl_start(&window, &renderer);
-    SDL_RenderPresent(renderer); /* add this */
-    SDL_Delay(5000);
-    sdl_stop(window, renderer);
+    SDL_RenderPresent(renderer);
+    //SDL_Delay(5000);
+    
+    //game loop flag
+    bool quit = false;
 
-  
+    //Event handler
+    SDL_Event e;
+
+    int mover = 0;
+
+    //game loop
+    while(!quit)
+    {          
+        test_rect(renderer, mover);
+        SDL_RenderPresent(renderer);
+
+        if(mover < 200){
+        mover++;
+        }
+        //Handle events on queue
+        while( SDL_PollEvent( &e ) != 0 )
+        {
+            //User requests quit
+            if( e.type == SDL_QUIT )
+            {
+                quit = true;
+            }
+        }
+    }
+
+    sdl_stop(window, renderer);
+ 
     return 0;
 }

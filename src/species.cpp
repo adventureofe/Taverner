@@ -1,4 +1,4 @@
-/* tAverner
+/* taverner
 
 By theadventureofe(John Gormley)
 
@@ -65,7 +65,6 @@ Species::Species(Weight weight, Length length, std::vector<Subtype*> subtypes, s
     };
 }
 
-#define for_each_subtype std::for_each(this->subtypes.begin(), this->subtypes.end(), [](Subtype* const& i)
 
 void Species::print()
 {
