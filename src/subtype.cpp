@@ -2,10 +2,11 @@
 
 By theadventureofe(John Gormley)
 
-subtype source code
+element source code
 
 the_adventure_of_e λ */
 
+//some of these may be removable at a later stage
 #include <iostream>
 #include <utility>
 #include <string>
@@ -13,69 +14,91 @@ the_adventure_of_e λ */
 
 #include "../headers/subtype.hpp"
 
+#define vec_str std::vector<std::string>
+
 Subtype::Subtype()
 {
-  this->name = "default_subtype";
+    this->words =
+    {
+        {"name", vec_str{"SUBTYPE_NAME_DEFAULT"}},
+        {"adjective", vec_str{"SUBTYPE_ADJECTIVES_DEFAULT"}}
+    };
 }
 
-Subtype::Subtype(std::string name)
+Subtype::Subtype(subtype_words words)
 {
-  this->name = name;
+    this->words =
+    {
+        {"names", words.names},
+        {"adjectives", words.adjectives}
+    };
 }
 
-Subtype amphibian = Subtype("amphibian");
-Subtype ape = Subtype("ape");
-Subtype climber = Subtype("climber");
-Subtype bird = Subtype("bird");
-Subtype bird_of_prey = Subtype("bird of prey");
-Subtype burrower = Subtype("burrower");
-Subtype canine = Subtype("canine");
-Subtype crawler = Subtype("crawler");
-Subtype demon_subtype = Subtype("demon"); //added subtype suffix to stop linker error
-Subtype equine = Subtype("equine");
-Subtype fairy = Subtype("fairy");
-Subtype feline = Subtype("feline");
-Subtype flyer = Subtype("flyer");
-Subtype humanoid = Subtype("humanoid");
-Subtype jumper = Subtype("jumper");
-Subtype mammal = Subtype("mammal");
-Subtype monster = Subtype("monster");
-Subtype nocturnal = Subtype("nocturnal");
-Subtype orcish = Subtype("orcish");
-Subtype primate = Subtype("primate");
-Subtype runner = Subtype("runner");
-Subtype slime_subtype = Subtype("slime"); //added subtype suffix to stop linker error
-Subtype spirit = Subtype("spirit");
-Subtype swimmer = Subtype("swimmer");
-Subtype vermin = Subtype("vermin");
-Subtype wanderer = Subtype("wanderer");
+void Subtype::print(){
+    std::cout << "(ELEMENT-PRINT)\n";
+}
+
+vec_str subtype_set_names(std::initializer_list<std::string> names)
+{
+    vec_str result;
+
+    for(std::string i : names)
+    {
+      result.push_back(i);
+    }
+
+    return result;
+}
+
+vec_str subtype_set_adjectives(std::initializer_list<std::string> adjectives)
+{
+    vec_str result;
+
+    for(std::string i : adjectives)
+    {
+      result.push_back(i);
+    }
+
+    return result;
+}
+
+Subtype amphibian = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"amphibian"}),
+      .adjectives = subtype_set_adjectives({"amphibious"}) 
+    }
+);
+
+Subtype ape = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"ape"}),
+      .adjectives = subtype_set_adjectives({"simian"}) 
+    }
+);
+
+Subtype bird = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"bird"}),
+      .adjectives = subtype_set_adjectives({"avian"}) 
+    }
+);
+
+Subtype canid = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"canid"}),
+      .adjectives = subtype_set_adjectives({"avian"}) 
+    }
+);
+
 
 std::map<std::string, Subtype*> subtype_map =
 {
     {"amphibian", &amphibian},
     {"ape", &ape},
-    {"climber", &climber},
     {"bird", &bird},
-    {"bird of prey", &bird_of_prey},
-    {"burrower", &burrower},
-    {"canine", &canine},
-    {"crawler", &crawler},
-    {"demon", &demon_subtype},
-    {"equine", &equine},
-    {"fairy", &fairy},
-    {"feline", &feline},
-    {"flyer", &flyer},
-    {"humanoid", &humanoid},
-    {"jumper", &jumper},
-    {"mammal", &mammal},
-    {"monster", &monster},
-    {"nocturnal", &nocturnal},
-    {"orcish", &orcish},
-    {"primate", &primate},
-    {"runner", &runner},
-    {"slime", &slime_subtype},
-    {"spirit", &spirit},
-    {"swimmer", &swimmer},
-    {"vermin", &vermin},
-    {"wanderer", &wanderer}
+    {"canid", &canid},
 };

@@ -6,6 +6,7 @@ element source code
 
 the_adventure_of_e λ */
 
+//some of these may be removable at a later stage
 #include <iostream>
 #include <utility>
 #include <string>
@@ -13,655 +14,225 @@ the_adventure_of_e λ */
 
 #include "../headers/element.hpp"
 
+#define vec_str std::vector<std::string>
+
 Element::Element()
 {
-    this->name = "DEFAULT_ELEMENT";
-  
-    this->multipliers = 
+    this->words =
     {
-        {"alien",    1.0},
-        {"air",      1.0},
-        {"chaos",    1.0},
-        {"earth",    1.0},
-        {"electric", 1.0},
-        {"evil",     1.0},
-        {"fire",     1.0},
-        {"holy",     1.0},
-        {"ice",      1.0},
-        {"magic",    1.0},
-        {"metal",    1.0},
-        {"mutant",   1.0},
-        {"normal",   1.0},
-        {"nuclear",  1.0},
-        {"plant",    1.0},
-        {"poison",   1.0},
-        {"shadow",   1.0},
-        {"toon",     1.0},
-        {"undead",   1.0},
-        {"water",    1.0}
+        {"name", vec_str{"ELEMENT_NAME_DEFAULT"}},
+        {"adjective", vec_str{"ELEMENT_ADJECTIVES_DEFAULT"}}
     };
-};
-
-Element::Element(std::string name, Multipliers multipliers)
-{
-    this->name = name;
-
-    this->multipliers =
-    {
-        {"alien",    multipliers.alien},
-        {"air",      multipliers.air},
-        {"chaos",    multipliers.chaos},
-        {"earth",    multipliers.earth},
-        {"electric", multipliers.electric},
-        {"evil",     multipliers.evil},
-        {"fire",     multipliers.fire},
-        {"holy",     multipliers.holy},
-        {"ice",      multipliers.ice},
-        {"magic",    multipliers.magic},
-        {"metal",    multipliers.metal},
-        {"mutant",   multipliers.mutant},
-        {"normal",   multipliers.normal},
-        {"nuclear",  multipliers.nuclear},
-        {"plant",    multipliers.plant},
-        {"poison",   multipliers.poison},
-        {"shadow",   multipliers.shadow},
-        {"toon",     multipliers.toon},
-        {"undead",   multipliers.undead},
-        {"water",    multipliers.water}
-    };
-};
-
-void Element::print(){
-  std::cout << "(ELEMENT-PRINT)\n";
-  std::cout << "Name:( " << this->name << " )\n";
-  
-  std::cout << "(Multipliers)\n";
-    for (auto const& [key, val] : this->multipliers)
-    {
-        std::cout << "   " << key << " : ";
-        std::cout << val << "\n";
-    }
-    std::cout << "\n";
 }
 
-//blueprints for all elements
-/////////////////////////////////////////////////////////////////////////////////////////////////
-Element alien = Element(
-    "alien" ,
-
-    Multipliers
+Element::Element(element_words words)
+{
+    this->words =
     {
-        .alien = 0.5, 
-        .air = 2.0,
-        .chaos = 1.0,
-        .earth = 2.0, 
-        .electric = 2.0,
-        .evil =  1.0,
-        .fire = 2.0,
-        .holy = 1.0,
-        .ice = 1.0,
-        .magic = 1.0,
-        .metal = 1.0,
-        .mutant = 1.0,
-        .normal = 2.0,
-        .nuclear = 0.5,
-        .plant = 1.0,
-        .poison = 0.5,
-        .shadow = 2.0,
-        .toon = 1.0,
-        .undead = 0.5,
-        .water = 0.5
+        {"names", words.names},
+        {"adjectives", words.adjectives}
+    };
+}
+
+void Element::print(){
+    std::cout << "(ELEMENT-PRINT)\n";
+}
+
+vec_str element_set_names(std::initializer_list<std::string> names)
+{
+    vec_str result;
+
+    for(std::string i : names)
+    {
+      result.push_back(i);
+    }
+
+    return result;
+}
+
+vec_str element_set_adjectives(std::initializer_list<std::string> adjectives)
+{
+    vec_str result;
+
+    for(std::string i : adjectives)
+    {
+      result.push_back(i);
+    }
+
+    return result;
+}
+
+Element alien = Element(
+    element_words
+    {
+      .names = element_set_names({"alien", "extraterrestrial"}),
+      .adjectives = element_set_adjectives({"unearthly", "otherworldy"}) 
     }
 );
 
 Element air = Element(
-    "air" ,
-
-    Multipliers
+    element_words
     {
-        .alien = 0.5, 
-        .air = 0.5,
-        .chaos = 1.0,
-        .earth = 1.0, 
-        .electric = 2.0,
-        .evil =  0.5,
-        .fire = 2.0,
-        .holy = 1.0,
-        .ice = 2.0,
-        .magic = 1.0,
-        .metal = 1.0,
-        .mutant = 2.0,
-        .normal = 1.0,
-        .nuclear = 0.5,
-        .plant = 0.5,
-        .poison = 1.0,
-        .shadow = 1.0,
-        .toon = 2.0,
-        .undead = 1.0,
-        .water = 1.0
+      .names = element_set_names({"air", "wind"}),
+      .adjectives = element_set_adjectives({"windy"}) 
     }
 );
 
 Element chaos = Element(
-    "chaos" ,
-
-    Multipliers
+    element_words
     {
-        .alien = 2.0, 
-        .air = 0.5,
-        .chaos = 2.0,
-        .earth = 0.5, 
-        .electric = 1.0,
-        .evil =  1.0,
-        .fire = 0.5,
-        .holy = 1.0,
-        .ice = 1.0,
-        .magic = 2.0,
-        .metal = 1.0,
-        .mutant = 2.0,
-        .normal = 1.0,
-        .nuclear = 2.0,
-        .plant = 0.5,
-        .poison = 1.0,
-        .shadow = 2.0,
-        .toon = 2.0,
-        .undead = 2.0,
-        .water = 2.0
+      .names = element_set_names({"chaos"}),
+      .adjectives = element_set_adjectives({"chaotic"}) 
     }
 );
 
-Element earth = Element(
-    "earth" ,
-
-    Multipliers
+Element earth  = Element(
+    element_words
     {
-        .alien = 1.0, 
-        .air = 1.0,
-        .chaos = 1.0,
-        .earth = 0.5, 
-        .electric = 1.0,
-        .evil =  2.0,
-        .fire = 2.0,
-        .holy = 1.0,
-        .ice = 1.0,
-        .magic = 2.0,
-        .metal = 0.5,
-        .mutant = 1.0,
-        .normal = 1.0,
-        .nuclear = 1.0,
-        .plant = 0.5,
-        .poison = 1.0,
-        .shadow = 1.0,
-        .toon = 1.0,
-        .undead = 2.0,
-        .water = 0.5
+      .names = element_set_names({"earth", "soil", "mud", "dirt"}),
+      .adjectives = element_set_adjectives({"earthy", "muddy"}) 
     }
 );
 
-Element electric = Element(
-    "electric" ,
-
-    Multipliers
-    {
-        .alien = 0.5, 
-        .air = 0.5,
-        .chaos = 1.0,
-        .earth = 0.5, 
-        .electric = 0.5,
-        .evil =  1.0,
-        .fire = 1.0,
-        .holy = 2.0,
-        .ice = 1.0,
-        .magic = 2.0,
-        .metal = 2.0,
-        .mutant = 1.0,
-        .normal = 1.0,
-        .nuclear = 1.0,
-        .plant = 0.5,
-        .poison = 1.0,
-        .shadow = 1.0,
-        .toon = 2.0,
-        .undead = 1.0,
-        .water = 2.0
+Element electricity  = Element(
+    element_words
+    { 
+      .names = element_set_names({"electricity", "shock", "lightning"}), 
+      .adjectives = element_set_adjectives({"electric", "electricifying", "shocking"}) 
     }
 );
 
-Element evil = Element(
-    "evil" ,
-
-    Multipliers
+Element evil  = Element(
+    element_words
     {
-        .alien = 1.0, 
-        .air = 1.0,
-        .chaos = 1.0,
-        .earth = 1.0, 
-        .electric = 1.0,
-        .evil =  0.5,
-        .fire = 1.0,
-        .holy = 2.0,
-        .ice = 1.0,
-        .magic = 1.0,
-        .metal = 1.0,
-        .mutant = 1.0,
-        .normal = 2.0,
-        .nuclear = 0.5,
-        .plant = 2.0,
-        .poison = 1.0,
-        .shadow = 0.5,
-        .toon = 0.5,
-        .undead = 0.5,
-        .water = 2.0
+      .names = element_set_names({"evil", "wickedness"}),
+      .adjectives = element_set_adjectives({"unholy", "wicked"}) 
     }
 );
 
 Element fire = Element(
-    "fire" ,
-
-    Multipliers
+    element_words
     {
-        .alien = 2.0, 
-        .air = 0.5,
-        .chaos = 2.0,
-        .earth = 0.5, 
-        .electric = 1.0,
-        .evil =  0.5,
-        .fire = 0.5,
-        .holy = 1.0,
-        .ice = 2.0,
-        .magic = 1.0,
-        .metal = 2.0,
-        .mutant = 1.0,
-        .normal = 1.0,
-        .nuclear = 1.0,
-        .plant = 2.0,
-        .poison = 1.0,
-        .shadow = 0.5,
-        .toon = 1.0,
-        .undead = 2.0,
-        .water = 0.5
+      .names = element_set_names({"fire", "flame", "blaze", "ember"}),
+      .adjectives = element_set_adjectives({"fiery", "flaming", "burning", "flaring"}) 
     }
 );
 
-Element holy = Element(
-    "holy" ,
-
-    Multipliers
+Element holiness = Element(
+    element_words
     {
-        .alien = 0.5, 
-        .air = 1.0,
-        .chaos = 0.5,
-        .earth = 2.0, 
-        .electric = 1.0,
-        .evil =  2.0,
-        .fire = 2.0,
-        .holy = 0.5,
-        .ice = 2.0,
-        .magic = 2.0,
-        .metal = 1.0,
-        .mutant = 2.0,
-        .normal = 1.0,
-        .nuclear = 2.0,
-        .plant = 1.0,
-        .poison = 2.0,
-        .shadow = 2.0,
-        .toon = 0.5,
-        .undead = 2.0,
-        .water = 1.0
+      .names = element_set_names({"holiness"}),
+      .adjectives = element_set_adjectives({"holy"}) 
     }
 );
+
 
 Element ice = Element(
-    "ice" ,
-
-    Multipliers
+    element_words
     {
-        .alien = 2.0, 
-        .air = 1.0,
-        .chaos = 0.5,
-        .earth = 2.0, 
-        .electric = 1.0,
-        .evil =  1.0,
-        .fire = 0.5,
-        .holy = 2.0,
-        .ice = 0.5,
-        .magic = 0.5,
-        .metal = 1.0,
-        .mutant = 2.0,
-        .normal = 1.0,
-        .nuclear = 1.0,
-        .plant = 2.0,
-        .poison = 1.0,
-        .shadow = 1.0,
-        .toon = 1.0,
-        .undead = 2.0,
-        .water = 2.0
+      .names = element_set_names({"ice", "frost"}),
+      .adjectives = element_set_adjectives({"icy", "frozen", "frosty", "frosted"}) 
     }
 );
 
 Element magic = Element(
-    "magic" ,
-
-    Multipliers
+    element_words
     {
-        .alien = 0.5, 
-        .air = 1.0,
-        .chaos = 2.0,
-        .earth = 0.5, 
-        .electric = 1.0,
-        .evil =  2.0,
-        .fire = 2.0,
-        .holy = 2.0,
-        .ice = 2.0,
-        .magic = 0.5,
-        .metal = 2.0,
-        .mutant = 0.5,
-        .normal = 1.0,
-        .nuclear = 1.0,
-        .plant = 1.0,
-        .poison = 0.5,
-        .shadow = 2.0,
-        .toon = 0.5,
-        .undead = 2.0,
-        .water = 1.0
+      .names = element_set_names({"magic", "mysticism"}),
+      .adjectives = element_set_adjectives({"magical", "mystic"}) 
     }
 );
 
-Element metal = Element(
-    "metal" ,
-
-    Multipliers
+Element metal  = Element(
+    element_words
     {
-        .alien = 1.0, 
-        .air = 2.0,
-        .chaos = 1.0,
-        .earth = 1.0, 
-        .electric = 1.0,
-        .evil =  1.0,
-        .fire = 1.0,
-        .holy = 1.0,
-        .ice = 1.0,
-        .magic = 1.0,
-        .metal = 0.5,
-        .mutant = 1.0,
-        .normal = 1.0,
-        .nuclear = 1.0,
-        .plant = 2.0,
-        .poison = 2.0,
-        .shadow = 1.0,
-        .toon = 1.0,
-        .undead = 1.0,
-        .water = 0.5
+      .names = element_set_names({"metal", "steel"}),
+      .adjectives = element_set_adjectives({"metallic"}) 
     }
 );
 
-Element mutant = Element(
-    "mutant" ,
-
-    Multipliers
+Element mutation  = Element(
+    element_words
     {
-        .alien = 2.0, 
-        .air = 1.0,
-        .chaos = 2.0,
-        .earth = 1.0, 
-        .electric = 1.0,
-        .evil =  2.0,
-        .fire = 1.0,
-        .holy = 0.5,
-        .ice = 0.5,
-        .magic = 1.0,
-        .metal = 1.0,
-        .mutant = 0.5,
-        .normal = 1.0,
-        .nuclear = 2.0,
-        .plant = 2.0,
-        .poison = 1.0,
-        .shadow = 1.0,
-        .toon = 1.0,
-        .undead = 2.0,
-        .water = 0.5
+      .names = element_set_names({"mutation"}),
+      .adjectives = element_set_adjectives({"mutant", "mutated"}) 
+    }
+);
+
+Element normal  = Element(
+    element_words
+    {
+      .names = element_set_names({"normal"}),
+      .adjectives = element_set_adjectives({""}) 
     }
 );
 
 
-Element normal = Element(
-    "normal" ,
-
-    Multipliers
+Element plant  = Element(
+    element_words
     {
-        .alien = 0.5, 
-        .air = 1.0,
-        .chaos = 0.5,
-        .earth = 2.0, 
-        .electric = 1.0,
-        .evil =  2.0,
-        .fire = 1.0,
-        .holy = 1.0,
-        .ice = 1.0,
-        .magic = 1.0,
-        .metal = 1.0,
-        .mutant = 2.0,
-        .normal = 1.0,
-        .nuclear = 1.0,
-        .plant = 1.0,
-        .poison = 1.0,
-        .shadow = 1.0,
-        .toon = 2.0,
-        .undead = 0.5,
-        .water = 1.0
+      .names = element_set_names({"plant"}),
+      .adjectives = element_set_adjectives({"grassy", "mossy", "leafy"}) 
     }
 );
 
-Element nuclear = Element(
-    "nuclear" ,
-    Multipliers
+Element poison  = Element(
+    element_words
     {
-        .alien = 2.0, 
-        .air = 2.0,
-        .chaos = 2.0,
-        .earth = 1.0, 
-        .electric = 0.5,
-        .evil =  1.0,
-        .fire = 0.5,
-        .holy = 1.0,
-        .ice = 1.0,
-        .magic = 0.5,
-        .metal = 1.0,
-        .mutant = 1.0,
-        .normal = 1.0,
-        .nuclear = 2.0,
-        .plant = 2.0,
-        .poison = 1.0,
-        .shadow = 0.5,
-        .toon = 0.5,
-        .undead = 2.0,
-        .water = 1.0
+      .names = element_set_names({"poison", "toxic"}),
+      .adjectives = element_set_adjectives({"poisonous"}) 
     }
 );
 
-Element plant = Element(
-    "plant" ,
-    Multipliers
+Element radiation  = Element(
+    element_words
     {
-        .alien = 2.0, 
-        .air = 2.0,
-        .chaos = 0.5,
-        .earth = 2.0, 
-        .electric = 1.0,
-        .evil =  0.5,
-        .fire = 0.5,
-        .holy = 2.0,
-        .ice = 0.5,
-        .magic = 1.0,
-        .metal = 1.0,
-        .mutant = 1.0,
-        .normal = 1.0,
-        .nuclear = 0.5,
-        .plant = 0.5,
-        .poison = 1.0,
-        .shadow = 1.0,
-        .toon = 1.0,
-        .undead = 1.0,
-        .water = 2.0
+      .names = element_set_names({"radiation", "radioactivity"}),
+      .adjectives = element_set_adjectives({"nuclear", "atomic", "radioactive"}) 
     }
 );
 
-Element poison = Element(
-    "poison" ,
-    Multipliers
+Element shadow  = Element(
+    element_words
     {
-        .alien = 2.0, 
-        .air = 1.0,
-        .chaos = 2.0,
-        .earth = 1.0, 
-        .electric = 1.0,
-        .evil =  1.0,
-        .fire = 1.0,
-        .holy = 2.0,
-        .ice = 1.0,
-        .magic = 2.0,
-        .metal = 0.5,
-        .mutant = 0.5,
-        .normal = 1.0,
-        .nuclear = 0.5,
-        .plant = 2.0,
-        .poison = 0.5,
-        .shadow = 0.5,
-        .toon = 0.5,
-        .undead = 0.5,
-        .water = 2.0
-    }
-);
-
-Element shadow = Element(
-    "shadow" ,
-    Multipliers
-    {
-        .alien = 1.0, 
-        .air = 2.0,
-        .chaos = 2.0,
-        .earth = 2.0, 
-        .electric = 1.0,
-        .evil =  0.5,
-        .fire = 1.0,
-        .holy = 2.0,
-        .ice = 1.0,
-        .magic = 2.0,
-        .metal = 1.0,
-        .mutant = 0.5,
-        .normal = 2.0,
-        .nuclear = 2.0,
-        .plant = 0.5,
-        .poison = 0.5,
-        .shadow = 0.5,
-        .toon = 1.0,
-        .undead = 2.0,
-        .water = 1.0
-    }
-);
-
-Element toon = Element(
-    "toon" ,
-    Multipliers
-    {
-        .alien = 1.0, 
-        .air = 2.0,
-        .chaos = 2.0,
-        .earth = 0.5, 
-        .electric = 0.5,
-        .evil =  1.0,
-        .fire = 0.5,
-        .holy = 2.0,
-        .ice = 1.0,
-        .magic = 0.5,
-        .metal = 1.0,
-        .mutant = 1.0,
-        .normal = 0.5,
-        .nuclear = 1.0,
-        .plant = 1.0,
-        .poison = 2.0,
-        .shadow = 2.0,
-        .toon = 0.5,
-        .undead = 1.0,
-        .water = 1.0
+      .names = element_set_names({"shadow", "darkness"}),
+      .adjectives = element_set_adjectives({"shadowy", "dark"}) 
     }
 );
 
 Element undead = Element(
-    "undead" ,
-    Multipliers
+    element_words
     {
-        .alien = 2.0, 
-        .air = 0.5,
-        .chaos = 2.0,
-        .earth = 0.5, 
-        .electric = 2.0,
-        .evil =  1.0,
-        .fire = 0.5,
-        .holy = 2.0,
-        .ice = 2.0,
-        .magic = 2.0,
-        .metal = 0.5,
-        .mutant = 2.0,
-        .normal = 2.0,
-        .nuclear = 1.0,
-        .plant = 1.0,
-        .poison = 2.0,
-        .shadow = 2.0,
-        .toon = 1.0,
-        .undead = 0.5,
-        .water = 0.5
+      .names = element_set_names({"undead", "zombie"}),
+      .adjectives = element_set_adjectives({"zombified", "rotting"}) 
     }
 );
 
 Element water = Element(
-    "water" ,
-    Multipliers
+    element_words
     {
-        .alien = 2.0, 
-        .air = 1.0,
-        .chaos = 0.5,
-        .earth = 1.0, 
-        .electric = 0.5,
-        .evil = 2.0,
-        .fire = 2.0,
-        .holy = 1.0,
-        .ice = 0.5,
-        .magic = 2.0,
-        .metal = 2.0,
-        .mutant = 0.5,
-        .normal = 1.0,
-        .nuclear = 0.5,
-        .plant = 0.5,
-        .poison = 0.5,
-        .shadow = 1.0,
-        .toon = 1.0,
-        .undead = 1.0,
-        .water = 0.5
+      .names = element_set_names({"water", "sea"}),
+      .adjectives = element_set_adjectives({"watery", "wet"}) 
     }
 );
-/////////////////////////////////////////////////////////////////////////////////////////////
 
-//map of all available elements
-std::map<std::string, Element*> element_map = 
+std::map<std::string, Element*> element_map =
 {
     {"alien", &alien},
     {"air", &air},
     {"chaos", &chaos},
     {"earth", &earth},
-    {"electric", &electric},
-    {"evil", &evil},
+    {"electricity", &electricity},
     {"fire", &fire},
-    {"holy", &holy},
+    {"holiness", &holiness},
     {"ice", &ice},
-    {"magic", &magic},
     {"metal", &metal},
-    {"mutant", &mutant},
+    {"mutation", &mutation},
     {"normal", &normal},
-    {"nuclear", &nuclear},
     {"plant", &plant},
     {"poison", &poison},
+    {"radiation", &radiation},
     {"shadow", &shadow},
-    {"toon", &toon},
     {"undead", &undead},
     {"water", &water}
 };
