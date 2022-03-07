@@ -86,6 +86,23 @@ Subtype bird = Subtype(
     }
 );
 
+Subtype bird_of_prey = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"bird of prey"}),
+      .adjectives = subtype_set_adjectives({"avian"}) 
+    }
+);
+
+Subtype burrower = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"burrower"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+
 Subtype canid = Subtype(
     subtype_words
     {
@@ -94,6 +111,141 @@ Subtype canid = Subtype(
     }
 );
 
+Subtype crawler = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"crawler"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype equine = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"equine"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype fairy = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"fairy"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype feline = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"feline"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype flyer = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"flyer"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype humanoid = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"humanoid"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype jumper = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"jumper"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype mammal = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"mammal"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype monster = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"monster"}),
+      .adjectives = subtype_set_adjectives({"monsterous"}) 
+    }
+);
+
+Subtype nocturnal = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"nocturnal"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype orcish = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"orcish"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype primate = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"primate"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype runner = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"runner"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype spirit = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"spirit"}),
+      .adjectives = subtype_set_adjectives({"spiritual"}) 
+    }
+);
+
+Subtype swimmer = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"swimmer"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype vermin = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"vermin"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+Subtype wanderer = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"wanderer"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
 
 std::map<std::string, Subtype*> subtype_map =
 {
@@ -101,4 +253,20 @@ std::map<std::string, Subtype*> subtype_map =
     {"ape", &ape},
     {"bird", &bird},
     {"canid", &canid},
+    {"crawler", &crawler},
+    {"equine", &equine},
+    {"fairy", &fairy},
+    {"feline", &feline},
+    {"flyer", &flyer},
+    {"humanoid", &humanoid},
+    {"jumper", &jumper},
+    {"mammal", &mammal},
+    {"nocturnal", &nocturnal},
+    {"orcish", &orcish},
+    {"primate", &primate},
+    {"runner", &runner},
+    {"spirit", &spirit},
+    {"swimmer", &swimmer},
+    {"vermin", &vermin},
+    {"wanderer", &wanderer},
 };

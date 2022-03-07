@@ -13,6 +13,7 @@ the_adventure_of_e λ */
 #include "headers/element.hpp"
 #include "headers/species.hpp"
 #include "headers/subtype.hpp"
+#include "headers/move.hpp"
 
 // print all included cmd args (removes compiler warning)
 void arg_print(int argc, char** argv)
@@ -34,6 +35,8 @@ int main (int argc, char** argv)
     std::cout << species_map["anchovy"]->words["names plural"][0] << "\n";
     std::cout << subtype_map["canid"]->words["names"][0] << "\n";
     std::cout << species_map["anchovy"]->common_elements[0]->words["names"][0] << "\n";
+    std::cout << species_map["demon"]->subtypes[0]->words["names"][0] << "\n";
+    std::cout << move_map["fireball"]->element->words["names"][0] << "\n";
 
     arg_print(argc, argv);
     return 0;

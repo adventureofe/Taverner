@@ -117,7 +117,7 @@ Species aardvark = Species(
         .names_plural = species_set_names_plural({"aardvarks"}),
         .adjectives = species_set_adjectives({""})
     },
-    Species::set_subtypes({"ape"}),
+    Species::set_subtypes({"vermin", "runner"}),
     Species::set_common_elements({"earth", "normal"})
 );
 
@@ -128,7 +128,7 @@ Species aardwolf = Species(
         .names_plural = species_set_names_plural({"aardwolves"}),
         .adjectives = species_set_adjectives({""})
     },
-    Species::set_subtypes({"ape"}),
+    Species::set_subtypes({"canid", "vermin", "runner"}),
     Species::set_common_elements({"earth", "normal", "chaos"})
 );
 
@@ -139,7 +139,7 @@ Species albatross = Species(
         .names_plural = species_set_names_plural({"albatrosses"}),
         .adjectives = species_set_adjectives({""})
     },
-    Species::set_subtypes({"ape"}),
+    Species::set_subtypes({"bird", "bird of prey", "flyer", "swimmer", "wanderer"}),
     Species::set_common_elements({"air", "water", "normal"})
 );
 
@@ -150,7 +150,7 @@ Species alligator = Species(
         .names_plural = species_set_names_plural({"alligators"}),
         .adjectives = species_set_adjectives({""})
     },
-    Species::set_subtypes({"ape"}),
+    Species::set_subtypes({"monster", "swimmer"}),
     Species::set_common_elements({"water", "evil", "normal"})
 );
 
@@ -162,7 +162,7 @@ Species anchovy = Species(
         .names_plural = species_set_names_plural({"anchovies"}),
         .adjectives = species_set_adjectives({""})
     },
-    Species::set_subtypes({"ape"}),
+    Species::set_subtypes({"swimmer"}),
     Species::set_common_elements({"water", "normal"})
 );
 
@@ -173,7 +173,7 @@ Species angel = Species(
         .names_plural = species_set_names_plural({"angels"}),
         .adjectives = species_set_adjectives({"angelic"})
     },
-    Species::set_subtypes({"ape"}),
+    Species::set_subtypes({"spirit", "flyer", "humanoid"}),
     Species::set_common_elements({"holiness", "water"})
 );
 
@@ -182,9 +182,9 @@ Species ant = Species(
     {
         .names = species_set_names({"ant"}),
         .names_plural = species_set_names_plural({"ants"}),
-        .adjectives = species_set_adjectives({""})
+        .adjectives = species_set_adjectives({"crawler"})
     },
-    Species::set_subtypes({"ape"}),
+    Species::set_subtypes({"crawler"}),
     Species::set_common_elements({"earth", "poison", "metal"})
 );
 
@@ -194,9 +194,9 @@ Species anteater = Species(
     {
         .names = species_set_names({"anteater"}),
         .names_plural = species_set_names_plural({"anteaters"}),
-        .adjectives = species_set_adjectives({""})
+        .adjectives = species_set_adjectives({"crawler"})
     },
-    Species::set_subtypes({"ape"}),
+    Species::set_subtypes({"runner"}),
     Species::set_common_elements({"earth", "normal", "plant", "chaos"})
 );
 
@@ -208,7 +208,7 @@ Species demon = Species(
         .names_plural = species_set_names_plural({"demons"}),
         .adjectives = species_set_adjectives({"demonic"})
     },
-    Species::set_subtypes({"ape"}),
+    Species::set_subtypes({"spirit", "humanoid", "flyer"}),
     Species::set_common_elements({"evil", "fire", "shadow", "chaos"})
 );
 
