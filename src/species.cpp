@@ -117,7 +117,7 @@ Species aardvark = Species(
         .names_plural = species_set_names_plural({"aardvarks"}),
         .adjectives = species_set_adjectives({""})
     },
-    Species::set_subtypes({"vermin", "runner"}),
+    Species::set_subtypes({"mammal", "vermin", "runner"}),
     Species::set_common_elements({"earth", "normal"})
 );
 
@@ -128,7 +128,7 @@ Species aardwolf = Species(
         .names_plural = species_set_names_plural({"aardwolves"}),
         .adjectives = species_set_adjectives({""})
     },
-    Species::set_subtypes({"canid", "vermin", "runner"}),
+    Species::set_subtypes({"mammal", "canid", "vermin", "runner"}),
     Species::set_common_elements({"earth", "normal", "chaos"})
 );
 
@@ -150,7 +150,7 @@ Species alligator = Species(
         .names_plural = species_set_names_plural({"alligators"}),
         .adjectives = species_set_adjectives({""})
     },
-    Species::set_subtypes({"monster", "swimmer"}),
+    Species::set_subtypes({"reptile", "monster", "swimmer"}),
     Species::set_common_elements({"water", "evil", "normal"})
 );
 
@@ -162,7 +162,7 @@ Species anchovy = Species(
         .names_plural = species_set_names_plural({"anchovies"}),
         .adjectives = species_set_adjectives({""})
     },
-    Species::set_subtypes({"swimmer"}),
+    Species::set_subtypes({"swimmer", "finned"}),
     Species::set_common_elements({"water", "normal"})
 );
 
@@ -184,7 +184,7 @@ Species ant = Species(
         .names_plural = species_set_names_plural({"ants"}),
         .adjectives = species_set_adjectives({"crawler"})
     },
-    Species::set_subtypes({"crawler"}),
+    Species::set_subtypes({"bug", "crawler"}),
     Species::set_common_elements({"earth", "poison", "metal"})
 );
 
@@ -196,7 +196,7 @@ Species anteater = Species(
         .names_plural = species_set_names_plural({"anteaters"}),
         .adjectives = species_set_adjectives({"crawler"})
     },
-    Species::set_subtypes({"runner"}),
+    Species::set_subtypes({"mammal", "runner"}),
     Species::set_common_elements({"earth", "normal", "plant", "chaos"})
 );
 

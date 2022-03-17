@@ -94,6 +94,15 @@ Subtype bird_of_prey = Subtype(
     }
 );
 
+Subtype bug = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"bug"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+
 Subtype burrower = Subtype(
     subtype_words
     {
@@ -143,6 +152,15 @@ Subtype feline = Subtype(
     }
 );
 
+Subtype finned = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"finned"}),
+      .adjectives = subtype_set_adjectives({""}) 
+    }
+);
+
+
 Subtype flyer = Subtype(
     subtype_words
     {
@@ -171,7 +189,7 @@ Subtype mammal = Subtype(
     subtype_words
     {
       .names = subtype_set_names({"mammal"}),
-      .adjectives = subtype_set_adjectives({""}) 
+      .adjectives = subtype_set_adjectives({"mammalian"}) 
     }
 );
 
@@ -206,6 +224,15 @@ Subtype primate = Subtype(
       .adjectives = subtype_set_adjectives({""}) 
     }
 );
+
+Subtype reptile = Subtype(
+    subtype_words
+    {
+      .names = subtype_set_names({"reptile"}),
+      .adjectives = subtype_set_adjectives({"reptilian"}) 
+    }
+);
+
 
 Subtype runner = Subtype(
     subtype_words
