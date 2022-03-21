@@ -19,9 +19,6 @@ the_adventure_of_e λ */
 #include "species.hpp"
 #include "subtype.hpp"
 
-//macro to shorten typing in this long types
-#define vec_str std::vector<std::string>
-
 class Creature
 {
 public:

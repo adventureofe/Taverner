@@ -35,16 +35,13 @@ int main (int argc, char** argv)
 {
     srand (time(NULL));
 
-    std::cout << "element_map_keys() = \n";
-
-
     //std::cout << species_map["anchovy"]->words["names plural"][0] << "\n";
     //std::cout << subtype_map["canid"]->words["names"][0] << "\n";
     //std::cout << species_map["anchovy"]->common_elements[0]->words["names"][0] << "\n";
     //std::cout << species_map["demon"]->subtypes[0]->words["names"][0] << "\n";
     //std::cout << move_map["fireball"]->element->words["names"][0] << "\n";
 
-    Creature* c = new Creature("aardwolf");
+    Creature* c = new Creature("alligator");
     c->print();
 
     arg_print(argc, argv);

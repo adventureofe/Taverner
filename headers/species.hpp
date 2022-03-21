@@ -17,11 +17,6 @@ the_adventure_of_e λ */
 #include "subtype.hpp"
 #include "element.hpp"
 
-//macro to shorten typing in this long types
-#define vec_str std::vector<std::string>
-#define vec_subtype std::vector<Subtype*>
-#define vec_element std::vector<Element*>
-
 struct species_words
 {
     vec_str names;
@@ -34,8 +29,7 @@ class Species
  public:
     Species();
     Species(species_words words, vec_subtype subtypes, vec_element common_elements);
-
-  
+ 
     static vec_subtype set_subtypes(std::initializer_list<std::string> subtypes);
     static vec_element set_common_elements(std::initializer_list<std::string> subtypes);
 

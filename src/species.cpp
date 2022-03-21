@@ -17,10 +17,6 @@ the_adventure_of_e λ */
 #include "../headers/species.hpp"
 #include "../headers/subtype.hpp"
 
-#define vec_str std::vector<std::string>
-#define vec_subtype std::vector<Subtype*>
-#define vec_element std::vector<Element*>
-
 Species::Species()
 {
     this->words =

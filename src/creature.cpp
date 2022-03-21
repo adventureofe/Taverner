@@ -20,10 +20,6 @@ the_adventure_of_e λ */
 #include "../headers/element.hpp"
 #include "../headers/creature.hpp"
 
-#define vec_subtype std::vector<Subtype*>
-#define vec_element std::vector<Element*>
-#define vec_str std::vector<std::string>
-
 Creature::Creature()
 {
     this->name = "CREATURE_NAME_DEFAULT";
@@ -54,63 +50,74 @@ Creature::Creature(std::string species)
     this->name = "Bob";
     this->species = species_map[species];
 
-    int element_selector = rand() % 4;
+    int element_selector = rand() % 16;
+    std::cout << "element_selector = " << element_selector << "\n";
 
-    switch(element_selector)
+
+    if(element_selector <= 6)
     {
-        case 0: 
+       std::cout << "1st common \n";
+       this->elements.emplace_back(this->species->common_elements[0]);
+    }
+ 
+    else if(element_selector <= 10) 
+    {
+        std::cout << "1 common \n";
+        int random = rand() % this->species->common_elements.size();
+        this->elements.emplace_back(this->species->common_elements[random]);
+    }
+
+    else if(element_selector <= 14)
+    {     
+        std::cout << "2 common \n";
+        int random_1 = 0, random_2 = 0;
+
+        do 
         {
-            std::cout << "1 common \n";
-            break;
-        }
-        case 1:
+            random_1 = rand() % this->species->common_elements.size();
+            random_2 = rand() % this->species->common_elements.size();    
+        } while (random_1 == random_2);
+
+        this->elements.emplace_back(this->species->common_elements[random_1]);
+        this->elements.emplace_back(this->species->common_elements[random_2]);    
+    }
+
+    else if(element_selector <= 15)
+    {
+        std::cout << "1 common, 1 random \n";    
+        int random_1 = 0, random_2 = 0;
+
+        do
         {
-            std::cout << "2 common \n";
-            break;
-        }
+            random_1 = rand() % this->species->common_elements.size();
+            random_2 = rand() % element_map.size();
+        } while (random_1 == random_2);
 
-        case 2:
+
+        std::string random_element = element_map_keys(element_map)[random_1];
+
+
+        this->elements.emplace_back(this->species->common_elements[random_1]);
+        this->elements.emplace_back(element_map.at(random_element)); 
+    }
+
+    else
+    {
+        std::cout << "2 random \n";
+        int random_1 = 0, random_2 = 0;
+
+        do 
         {
-            std::cout << "1 random \n";
-            int random = rand() % element_map.size();
+            random_1 = rand() % element_map.size();
+            random_2 = rand() % element_map.size();    
+        } while (random_1 == random_2);
+
+        std::string random_element_1 = element_map_keys(element_map)[random_1];
+        std::string random_element_2 = element_map_keys(element_map)[random_2];
+
+        this->elements.emplace_back(element_map.at(random_element_1));
+        this->elements.emplace_back(element_map.at(random_element_2));
             
-            std::cout << "random = " << random << "\n";
-            
-            std::string random_element = element_map_keys(element_map)[random];
-            
-
-            std::cout << "random_element = " << random_element << "\n";
-            
-            this->elements.emplace_back(element_map[random_element]); 
-            break;
-        }
-
-        case 3:
-        {
-            std::cout << "2 random \n";
-            int random_1 = 0, random_2 = 0;
-            do 
-            {
-                random_1 = rand() % element_map.size();
-                random_2 = rand() % element_map.size();
-
-            } while (random_1 == random_2);
-
-            std::cout << "random_1 = " << random_1 << "\n";
-            std::cout << "random_2 = " << random_2 << "\n\n";
-
-            std::string random_element_1 = element_map_keys(element_map)[random_1];
-            std::string random_element_2 = element_map_keys(element_map)[random_2];
-
-            std::cout << "random_element_1 = " << random_element_1 << "\n";
-            std::cout << "random_element_2 = " << random_element_2 << "\n";
-
-
-            this->elements.emplace_back(element_map[random_element_1]);
-            this->elements.emplace_back(element_map[random_element_2]);
-            
-            break;
-        }
     }
     this->subtypes = this->species->subtypes;
 }
@@ -119,6 +126,6 @@ void Creature::print()
 {
     for(auto element : this->elements)
     {
-      std::cout << element->words["names"][0] << "\n";
+      std::cout << element->words.at("names")[0] << "\n";
     }
 }

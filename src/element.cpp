@@ -14,8 +14,6 @@ the_adventure_of_e λ */
 
 #include "../headers/element.hpp"
 
-#define vec_str std::vector<std::string>
-
 Element::Element()
 {
     this->words =
@@ -234,7 +232,6 @@ vec_str element_map_keys(std::map<std::string, Element*> element_map) {
 
     for (auto el : element_map)
     {
-      std::cout << el.first << "\n";
       retval.emplace_back(el.first);
     }
 
