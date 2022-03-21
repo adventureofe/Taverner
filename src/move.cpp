@@ -77,13 +77,7 @@ Move back_stab = Move(
 
 Move smite = Move(
     "smite",
-    element_map["holy"],
-    10
-);
-
-Move mind_ray = Move(
-    "mind ray",
-    element_map["magic"],
+    element_map["holiness"],
     10
 );
 
@@ -114,12 +108,6 @@ Move sting = Move(
 Move atomic_blast = Move(
     "atomic blast",
     element_map["radiation"],
-    10
-);
-
-Move sneak_attack = Move(
-    "sneak attack",
-    element_map["shadow"],
     10
 );
 
@@ -164,13 +152,11 @@ std::map<std::string, Move*> move_map =
     {"lightning bolt", &lightning_bolt},
     {"back stab", &back_stab},
     {"smite", &smite},
-    {"mind ray", &mind_ray},
     {"bullet", &bullet},
     {"tentacle slap", &tentacle_slap},
     {"vine whip", &vine_whip},
     {"sting", &sting},
     {"atomic blast", &atomic_blast},
-    {"sneak attack", &sneak_attack},
     {"cannibalise", &cannibalise},
     {"soak", &soak},
     {"fin slap", &fin_slap},

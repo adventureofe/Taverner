@@ -11,6 +11,7 @@ the_adventure_of_e λ */
 #include <utility>
 #include <string>
 #include <vector>
+#include <time.h>
 
 #include "../headers/element.hpp"
 #include "../headers/species.hpp"
@@ -209,7 +210,7 @@ Species demon = Species(
         .adjectives = species_set_adjectives({"demonic"})
     },
     Species::set_subtypes({"spirit", "humanoid", "flyer"}),
-    Species::set_common_elements({"evil", "fire", "shadow", "chaos"})
+    Species::set_common_elements({"evil", "fire", "chaos"})
 );
 
 std::map<std::string, Species*> species_map =

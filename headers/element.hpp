@@ -37,3 +37,4 @@ class Element
 
 // main map for all elements
 extern std::map<std::string, Element*> element_map;
+extern vec_str element_map_keys(std::map<std::string, Element*> element_map);

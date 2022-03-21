@@ -20,8 +20,8 @@ Element::Element()
 {
     this->words =
     {
-        {"name", vec_str{"ELEMENT_NAME_DEFAULT"}},
-        {"adjective", vec_str{"ELEMENT_ADJECTIVES_DEFAULT"}}
+        {"names", vec_str{"ELEMENT_NAME_DEFAULT"}},
+        {"adjectives", vec_str{"ELEMENT_ADJECTIVES_DEFAULT"}}
     };
 }
 
@@ -122,7 +122,7 @@ Element holiness = Element(
     element_words
     {
       .names = element_set_names({"holiness"}),
-      .adjectives = element_set_adjectives({"holy"}) 
+      .adjectives = element_set_adjectives({"hole"}) 
     }
 );
 
@@ -132,14 +132,6 @@ Element ice = Element(
     {
       .names = element_set_names({"ice", "frost"}),
       .adjectives = element_set_adjectives({"icy", "frozen", "frosty", "frosted"}) 
-    }
-);
-
-Element magic = Element(
-    element_words
-    {
-      .names = element_set_names({"magic", "mysticism"}),
-      .adjectives = element_set_adjectives({"magical", "mystic"}) 
     }
 );
 
@@ -223,6 +215,7 @@ std::map<std::string, Element*> element_map =
     {"chaos", &chaos},
     {"earth", &earth},
     {"electricity", &electricity},
+    {"evil", &evil},
     {"fire", &fire},
     {"holiness", &holiness},
     {"ice", &ice},
@@ -232,7 +225,18 @@ std::map<std::string, Element*> element_map =
     {"plant", &plant},
     {"poison", &poison},
     {"radiation", &radiation},
-    {"shadow", &shadow},
     {"undead", &undead},
     {"water", &water}
 };
+
+vec_str element_map_keys(std::map<std::string, Element*> element_map) {
+    vec_str retval;
+
+    for (auto el : element_map)
+    {
+      std::cout << el.first << "\n";
+      retval.emplace_back(el.first);
+    }
+
+    return retval;
+}
