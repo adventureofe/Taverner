@@ -22,7 +22,6 @@ the_adventure_of_e λ */
 
 Creature::Creature()
 {
-    this->name = "CREATURE_NAME_DEFAULT";
     this->species = new Species();
     this->elements = vec_element{new Element()};
     this->subtypes = vec_subtype{new Subtype()};
@@ -30,7 +29,6 @@ Creature::Creature()
 
 Creature::Creature(std::string species, vec_str elements, vec_str subtypes)
 {
-    this->name = "Boris";
     this->species = species_map[species];
 
     for (auto element : elements)
@@ -47,7 +45,6 @@ Creature::Creature(std::string species, vec_str elements, vec_str subtypes)
 
 Creature::Creature(std::string species)
 {
-    this->name = "Bob";
     this->species = species_map[species];
 
     int element_selector = rand() % 16;
@@ -128,4 +125,5 @@ void Creature::print()
     {
       std::cout << element->words.at("names")[0] << "\n";
     }
+    std::cout << "\n";
 }

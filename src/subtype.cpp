@@ -37,6 +37,8 @@ Subtype::Subtype(subtype_words words)
 void Subtype::print()
 {
     std::cout << "(ELEMENT-PRINT)\n";
+    std::cout << "(NAME): " << this->words["names"][0] << "\n";
+    std::cout << "\n";
 }
 
 vec_str subtype_set_names(std::initializer_list<std::string> names)

@@ -17,7 +17,11 @@ the_adventure_of_e λ */
 
 Move::Move()
 {
-    this->name = "MOVE_NAME_DEFAULT";
+    this->words =
+    {
+        {"names", vec_str{"MOVE_NAME_DEFAULT"}}
+    };
+
     this->element = new Element();
     this->atk = 1; 
 }
@@ -36,6 +40,10 @@ Move::Move(move_words words, Element* element, int atk)
 void Move::print()
 {
     std::cout << "(MOVE-PRINT)\n";
+    std::cout << "(NAME): " << this->words["names"][0] << "\n";
+    std::cout << "(ELEMENT): " << this->element->words["names"][0] << "\n";
+    std::cout << "(POWER): " << this->atk << "\n";
+    std::cout << "\n";
 }
 
 vec_str move_set_names(std::initializer_list<std::string> names)

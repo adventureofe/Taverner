@@ -34,6 +34,7 @@ class Species
     static vec_element set_common_elements(std::initializer_list<std::string> subtypes);
 
     void print();
+    std::string name();
 
     std::map<std::string, vec_str> words;
     vec_subtype subtypes;

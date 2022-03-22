@@ -20,7 +20,6 @@ struct move_words
 class Move
 {
 public:
-  std::string name;
   Element* element;
   int atk;
 
@@ -28,6 +27,7 @@ public:
   Move(move_words words, Element* element, int atk);
 
   void print();
+  std::string name();
 
   std::map<std::string, vec_str> words;
 };

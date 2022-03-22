@@ -43,8 +43,24 @@ Species::Species(species_words words, vec_subtype subtypes, vec_element common_e
     this->common_elements = common_elements; 
 }
 
-void Species::print(){
+void Species::print()
+{
     std::cout << "(SPECIES-PRINT)\n";
+    std::cout << "(NAME): " << this->words["names"][0] << "\n";
+
+    std::cout << "(SUBTYPES)\n";
+    for (Subtype* i : this->subtypes)
+    {
+        std::cout << "\t" << i->words["names"][0] << "\n";
+    }
+    std::cout << "\n";
+
+    std::cout << "(COMMON-ELEMENTS)\n";
+    for (Element* i : this->common_elements)
+    {
+        std::cout << "\t" << i->words["names"][0] << "\n";
+    }
+    std::cout << "\n";
 }
 
 vec_str species_set_names(std::initializer_list<std::string> names)

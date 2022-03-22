@@ -22,7 +22,6 @@ the_adventure_of_e λ */
 class Creature
 {
 public:
-  std::string name;
   Species* species;
   std::vector<Element*> elements;
   std::vector<Subtype*> subtypes;
@@ -32,4 +31,6 @@ public:
   Creature(std::string species);
   Creature(std::string species, vec_str elements, vec_str subtypes);
   void print();
+
+  std::string name();
 };

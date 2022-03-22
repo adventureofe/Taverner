@@ -32,8 +32,11 @@ Element::Element(element_words words)
     };
 }
 
-void Element::print(){
+void Element::print()
+{
     std::cout << "(ELEMENT-PRINT)\n";
+    std::cout << "(NAME): " << this->words["names"][0] << "\n";
+    std::cout << "\n";
 }
 
 vec_str element_set_names(std::initializer_list<std::string> names)
@@ -58,6 +61,11 @@ vec_str element_set_adjectives(std::initializer_list<std::string> adjectives)
     }
 
     return result;
+}
+
+std::string Element::name()
+{
+  return this->words[0][0];
 }
 
 Element alien = Element

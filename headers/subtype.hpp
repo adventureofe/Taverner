@@ -29,6 +29,7 @@ public:
     Subtype(subtype_words words);
 
     void print();
+    std::string name();
   
     std::map<std::string, vec_str> words;
 };
