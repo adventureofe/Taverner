@@ -12,6 +12,11 @@ the_adventure_of_e λ */
 
 #include "element.hpp"
 
+struct move_words
+{
+  vec_str names;
+};
+
 class Move
 {
 public:
@@ -20,7 +25,11 @@ public:
   int atk;
 
   Move();
-  Move(std::string name, Element* element, int atk);
+  Move(move_words words, Element* element, int atk);
+
+  void print();
+
+  std::map<std::string, vec_str> words;
 };
 
 // main map for all elements

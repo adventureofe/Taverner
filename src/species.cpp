@@ -107,7 +107,8 @@ vec_element Species::set_common_elements(std::initializer_list<std::string> elem
     return result;
 }
 
-Species aardvark = Species(
+Species aardvark = Species
+(
     species_words
     {
         .names = species_set_names({"aardvark"}),
@@ -118,7 +119,8 @@ Species aardvark = Species(
     Species::set_common_elements({"earth", "normal"})
 );
 
-Species aardwolf = Species(
+Species aardwolf = Species
+(
     species_words
     {
         .names = species_set_names({"aardwolf"}),
@@ -129,7 +131,8 @@ Species aardwolf = Species(
     Species::set_common_elements({"earth", "normal", "chaos"})
 );
 
-Species albatross = Species(
+Species albatross = Species
+(
     species_words
     {
         .names = species_set_names({"albatross"}),
@@ -140,7 +143,8 @@ Species albatross = Species(
     Species::set_common_elements({"air", "water", "normal"})
 );
 
-Species alligator = Species(
+Species alligator = Species
+(
     species_words
     {
         .names = species_set_names({"alligator"}),
@@ -152,7 +156,8 @@ Species alligator = Species(
 );
 
 
-Species anchovy = Species(
+Species anchovy = Species
+(
     species_words
     {
         .names = species_set_names({"anchovy"}),
@@ -163,7 +168,8 @@ Species anchovy = Species(
     Species::set_common_elements({"water", "normal"})
 );
 
-Species angel = Species(
+Species angel = Species
+(
     species_words
     {
         .names = species_set_names({"angel"}),
@@ -174,7 +180,8 @@ Species angel = Species(
     Species::set_common_elements({"holiness", "water"})
 );
 
-Species ant = Species(
+Species ant = Species
+(
     species_words
     {
         .names = species_set_names({"ant"}),
@@ -186,7 +193,8 @@ Species ant = Species(
 );
 
 
-Species anteater = Species(
+Species anteater = Species
+(
     species_words
     {
         .names = species_set_names({"anteater"}),
@@ -198,7 +206,8 @@ Species anteater = Species(
 );
 
 
-Species demon = Species(
+Species demon = Species
+(
     species_words
     {
         .names = species_set_names({"demon"}),

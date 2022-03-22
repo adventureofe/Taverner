@@ -60,7 +60,8 @@ vec_str element_set_adjectives(std::initializer_list<std::string> adjectives)
     return result;
 }
 
-Element alien = Element(
+Element alien = Element
+(
     element_words
     {
       .names = element_set_names({"alien", "extraterrestrial"}),
@@ -68,7 +69,8 @@ Element alien = Element(
     }
 );
 
-Element air = Element(
+Element air = Element
+(
     element_words
     {
       .names = element_set_names({"air", "wind"}),
@@ -76,7 +78,8 @@ Element air = Element(
     }
 );
 
-Element chaos = Element(
+Element chaos = Element
+(
     element_words
     {
       .names = element_set_names({"chaos"}),
@@ -84,7 +87,8 @@ Element chaos = Element(
     }
 );
 
-Element earth  = Element(
+Element earth  = Element
+(
     element_words
     {
       .names = element_set_names({"earth", "soil", "mud", "dirt"}),
@@ -92,7 +96,8 @@ Element earth  = Element(
     }
 );
 
-Element electricity  = Element(
+Element electricity  = Element
+(
     element_words
     { 
       .names = element_set_names({"electricity", "shock", "lightning"}), 
@@ -100,7 +105,8 @@ Element electricity  = Element(
     }
 );
 
-Element evil  = Element(
+Element evil  = Element
+(
     element_words
     {
       .names = element_set_names({"evil", "wickedness"}),
@@ -108,7 +114,8 @@ Element evil  = Element(
     }
 );
 
-Element fire = Element(
+Element fire = Element
+(
     element_words
     {
       .names = element_set_names({"fire", "flame", "blaze", "ember"}),
@@ -116,7 +123,8 @@ Element fire = Element(
     }
 );
 
-Element holiness = Element(
+Element holiness = Element
+(
     element_words
     {
       .names = element_set_names({"holiness"}),
@@ -125,7 +133,8 @@ Element holiness = Element(
 );
 
 
-Element ice = Element(
+Element ice = Element
+(
     element_words
     {
       .names = element_set_names({"ice", "frost"}),
@@ -133,7 +142,8 @@ Element ice = Element(
     }
 );
 
-Element metal  = Element(
+Element metal  = Element
+(
     element_words
     {
       .names = element_set_names({"metal", "steel"}),
@@ -141,7 +151,8 @@ Element metal  = Element(
     }
 );
 
-Element mutation  = Element(
+Element mutation  = Element
+(
     element_words
     {
       .names = element_set_names({"mutation"}),
@@ -149,7 +160,8 @@ Element mutation  = Element(
     }
 );
 
-Element normal  = Element(
+Element normal  = Element
+(
     element_words
     {
       .names = element_set_names({"normal"}),
@@ -158,7 +170,8 @@ Element normal  = Element(
 );
 
 
-Element plant  = Element(
+Element plant  = Element
+(
     element_words
     {
       .names = element_set_names({"plant"}),
@@ -166,7 +179,8 @@ Element plant  = Element(
     }
 );
 
-Element poison  = Element(
+Element poison  = Element
+(
     element_words
     {
       .names = element_set_names({"poison", "toxic"}),
@@ -174,7 +188,8 @@ Element poison  = Element(
     }
 );
 
-Element radiation  = Element(
+Element radiation  = Element
+(
     element_words
     {
       .names = element_set_names({"radiation", "radioactivity"}),
@@ -182,7 +197,8 @@ Element radiation  = Element(
     }
 );
 
-Element shadow  = Element(
+Element shadow  = Element
+(
     element_words
     {
       .names = element_set_names({"shadow", "darkness"}),
@@ -190,7 +206,8 @@ Element shadow  = Element(
     }
 );
 
-Element undead = Element(
+Element undead = Element
+(
     element_words
     {
       .names = element_set_names({"undead", "zombie"}),
@@ -198,7 +215,8 @@ Element undead = Element(
     }
 );
 
-Element water = Element(
+Element water = Element
+(
     element_words
     {
       .names = element_set_names({"water", "sea"}),

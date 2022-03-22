@@ -34,7 +34,8 @@ Subtype::Subtype(subtype_words words)
     };
 }
 
-void Subtype::print(){
+void Subtype::print()
+{
     std::cout << "(ELEMENT-PRINT)\n";
 }
 
@@ -62,7 +63,8 @@ vec_str subtype_set_adjectives(std::initializer_list<std::string> adjectives)
     return result;
 }
 
-Subtype amphibian = Subtype(
+Subtype amphibian = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"amphibian"}),
@@ -70,7 +72,8 @@ Subtype amphibian = Subtype(
     }
 );
 
-Subtype ape = Subtype(
+Subtype ape = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"ape"}),
@@ -78,7 +81,8 @@ Subtype ape = Subtype(
     }
 );
 
-Subtype bird = Subtype(
+Subtype bird = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"bird"}),
@@ -86,7 +90,8 @@ Subtype bird = Subtype(
     }
 );
 
-Subtype bird_of_prey = Subtype(
+Subtype bird_of_prey = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"bird of prey"}),
@@ -94,7 +99,8 @@ Subtype bird_of_prey = Subtype(
     }
 );
 
-Subtype bug = Subtype(
+Subtype bug = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"bug"}),
@@ -103,7 +109,8 @@ Subtype bug = Subtype(
 );
 
 
-Subtype burrower = Subtype(
+Subtype burrower = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"burrower"}),
@@ -112,7 +119,8 @@ Subtype burrower = Subtype(
 );
 
 
-Subtype canid = Subtype(
+Subtype canid = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"canid"}),
@@ -120,7 +128,8 @@ Subtype canid = Subtype(
     }
 );
 
-Subtype crawler = Subtype(
+Subtype crawler = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"crawler"}),
@@ -128,7 +137,8 @@ Subtype crawler = Subtype(
     }
 );
 
-Subtype equine = Subtype(
+Subtype equine = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"equine"}),
@@ -136,7 +146,8 @@ Subtype equine = Subtype(
     }
 );
 
-Subtype fairy = Subtype(
+Subtype fairy = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"fairy"}),
@@ -144,7 +155,8 @@ Subtype fairy = Subtype(
     }
 );
 
-Subtype feline = Subtype(
+Subtype feline = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"feline"}),
@@ -152,7 +164,8 @@ Subtype feline = Subtype(
     }
 );
 
-Subtype finned = Subtype(
+Subtype finned = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"finned"}),
@@ -160,8 +173,8 @@ Subtype finned = Subtype(
     }
 );
 
-
-Subtype flyer = Subtype(
+Subtype flyer = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"flyer"}),
@@ -169,7 +182,8 @@ Subtype flyer = Subtype(
     }
 );
 
-Subtype humanoid = Subtype(
+Subtype humanoid = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"humanoid"}),
@@ -177,7 +191,8 @@ Subtype humanoid = Subtype(
     }
 );
 
-Subtype jumper = Subtype(
+Subtype jumper = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"jumper"}),
@@ -185,7 +200,8 @@ Subtype jumper = Subtype(
     }
 );
 
-Subtype mammal = Subtype(
+Subtype mammal = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"mammal"}),
@@ -193,7 +209,8 @@ Subtype mammal = Subtype(
     }
 );
 
-Subtype monster = Subtype(
+Subtype monster = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"monster"}),
@@ -201,7 +218,8 @@ Subtype monster = Subtype(
     }
 );
 
-Subtype nocturnal = Subtype(
+Subtype nocturnal = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"nocturnal"}),
@@ -209,7 +227,8 @@ Subtype nocturnal = Subtype(
     }
 );
 
-Subtype orcish = Subtype(
+Subtype orcish = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"orcish"}),
@@ -217,7 +236,8 @@ Subtype orcish = Subtype(
     }
 );
 
-Subtype primate = Subtype(
+Subtype primate = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"primate"}),
@@ -225,7 +245,8 @@ Subtype primate = Subtype(
     }
 );
 
-Subtype reptile = Subtype(
+Subtype reptile = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"reptile"}),
@@ -234,7 +255,8 @@ Subtype reptile = Subtype(
 );
 
 
-Subtype runner = Subtype(
+Subtype runner = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"runner"}),
@@ -242,7 +264,8 @@ Subtype runner = Subtype(
     }
 );
 
-Subtype spirit = Subtype(
+Subtype spirit = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"spirit"}),
@@ -250,7 +273,8 @@ Subtype spirit = Subtype(
     }
 );
 
-Subtype swimmer = Subtype(
+Subtype swimmer = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"swimmer"}),
@@ -258,7 +282,8 @@ Subtype swimmer = Subtype(
     }
 );
 
-Subtype vermin = Subtype(
+Subtype vermin = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"vermin"}),
@@ -266,7 +291,8 @@ Subtype vermin = Subtype(
     }
 );
 
-Subtype wanderer = Subtype(
+Subtype wanderer = Subtype
+(
     subtype_words
     {
       .names = subtype_set_names({"wanderer"}),
