@@ -24,12 +24,13 @@ public:
   int atk;
 
   Move();
-  Move(move_words words, Element* element, int atk);
+  Move(move_words words, Element* element, int atk, std::string move_type);
 
   void print();
   std::string name();
 
   std::map<std::string, vec_str> words;
+  std::string move_type;
 };
 
 // main map for all elements
