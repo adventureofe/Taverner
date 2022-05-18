@@ -1,9 +1,5 @@
-/*
-taverner
-By theadventureofe(John Gormley)
+* Taverner
 
-Turn-Based Roguelike RPG
-WIP
+turn based RPG
 
-the_adventure_of_e λ
-*/
+All files and experimentation with different languages to be stored here.
