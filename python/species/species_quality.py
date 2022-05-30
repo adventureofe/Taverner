@@ -2,6 +2,12 @@ class Quality:
     def __init__(self, name: str = "DEFAULT_QUALITY_NAME"):
         self.name = name
 
+    def info(self):
+        print("SPECIES_QUALITY INFO")
+        print("NAME: ", self.name)
+        print()
+
+
 DEFAULT_QUALITY = Quality(
 )
 
@@ -102,7 +108,7 @@ nocturnal = Quality(
 )
 
 orcish = Quality(
-    name = "orchish"
+    name = "orcish"
 )
 
 plankton_eater = Quality(

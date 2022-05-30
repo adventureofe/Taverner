@@ -1,7 +1,8 @@
 from species.species_quality import species_qualities
+import random
 
 class Species:
-    def __init__(self, name: str = "DEFAULT_SPECIES_NAME", qualities = [], can_tavern: bool = False):
+    def __init__(self, name: str = "DEFAULT_SPECIES_NAME", qualities: list = [], can_tavern: bool = False):
         self.name = name
 
         if len(qualities) > 0:
@@ -21,6 +22,25 @@ class Species:
         print()
         print("CAN TAVERN?: ", self.can_tavern)
         print()
+
+    def randomise_can_tavern(self, percentage):
+        selector = random.randrange(0, 100)
+
+        if selector + 1 <= percentage:
+            self.can_tavern = True
+        else:
+            self.can_tavern = False
+
+    def randomise_species_qualities(self, percentage):
+        self.qualities = []
+
+        for x in species_qualities.values():
+            selector = random.randrange(1, 100)
+            if selector + 1 <= percentage:
+                self.qualities.append(x)
+
+DEFAULT_SPECIES = Species(
+)
 
 aardvark = Species(
     name = "aardvark",
@@ -95,6 +115,7 @@ orc = Species(
 )
 
 species = {
+    "DEFAULT_SPECIES": DEFAULT_SPECIES,
     "aardvark": aardvark,
     "aardwolf": aardwolf,
     "albatross": albatross,
