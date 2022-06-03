@@ -14,7 +14,7 @@ class Move:
         self.element = element
 
     def info(self):
-        print("MOVE INFO")
+        print("+|==|+ MOVE INFO +|==|+")
         print("NAME: ", self.name)
         print("DESCRIPTION: ", self.description)
         print("MOVE_TYPE: ", self.move_type)

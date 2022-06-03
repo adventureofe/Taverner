@@ -4,10 +4,9 @@ class Element:
         self.element_type = element_type
 
     def info(self):
-        print("ELEMENT INFO")
-        print("NAME: ", self.name)
-
-        print("ELEMENT_TYPE: ", self.element_type)
+        print("+|==|+ ELEMENT INFO +|==|+")
+        print("NAME:", self.name)
+        print("ELEMENT_TYPE:", self.element_type)
         print()
 
 DEFAULT_ELEMENT = Element(
