@@ -1,10 +1,10 @@
 from species.species_quality import species_qualities
-from species.base_stat import Base_stat
-from biome.biome import biomes
+from stats import stats
+from personality.trait import traits
 import random
 
 class Species:
-    def __init__(self, name: str = "DEFAULT_SPECIES_NAME", base_stats: Base_stat = Base_stat(), qualities: list = [], preferred_biomes: list = [], can_tavern: bool = False):
+    def __init__(self, name: str = "DEFAULT_SPECIES_NAME", base_stats = stats(), qualities: list = [], common_traits: list = [], can_tavern: bool = False):
         self.name = name
 
         self.base_stats = base_stats
@@ -14,10 +14,10 @@ class Species:
         else:
             self.qualities = [species_qualities["DEFAULT_QUALITY"]]
 
-        if len(preferred_biomes) > 0:
-            self.preferred_biomes = [biomes[b] for b in preferred_biomes]
+        if len(common_traits) > 0:
+            self.common_traits = [traits[t] for t in common_traits]
         else:
-            self.preferred_biomes = [biomes["DEFAULT_BIOME"]]
+            self.common_traits = [traits["DEFAULT_TRAIT"]]
 
         self.can_tavern = can_tavern
 
@@ -33,8 +33,8 @@ class Species:
         print("BASE_STATS")
         self.base_stats.info()
 
-        print("PREFERRED BIOMES: ", end="")
-        for i in self.preferred_biomes:
+        print("COMMON_TRAITS: ", end="")
+        for i in self.common_traits:
             print(i.name + ", ", end="")
         print()
 
@@ -62,7 +62,7 @@ DEFAULT_SPECIES = Species(
 
 aardvark = Species(
     name = "aardvark",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -71,13 +71,13 @@ aardvark = Species(
         speed = 25,
     ),
     qualities = ["burrower", "insect eater", "predator", "vermin", "runner"],
-    preferred_biomes = ["desert", "savannah"],
+    common_traits = ["bashful", "glum"],
     can_tavern = True,
 )
 
 aardwolf = Species(
     name = "aardwolf",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -86,13 +86,13 @@ aardwolf = Species(
         speed = 25,
     ),
     qualities = ["burrower", "canine", "insect eater", "predator", "vermin", "runner"],
-    preferred_biomes = ["savannah"],
+    common_traits = ["adventurous", "egotistical"],
     can_tavern = False,
 )
 
 albatross = Species(
     name = "albatross",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -101,13 +101,13 @@ albatross = Species(
         speed = 25,
     ),
     qualities = ["bird", "bird of prey", "fish eater", "flyer", "predator", "wanderer"],
-    preferred_biomes = ["ocean"],
+    common_traits = ["gallant", "egotistical"],
     can_tavern = False,
 )
 
 alligator = Species(
     name = "alligator",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -116,13 +116,13 @@ alligator = Species(
         speed = 25,
     ),
     qualities = [ "man eater","meat eater", "monster", "predator", "reptile", "swimmer"],
-    preferred_biomes = ["swamp", "river"],
+    common_traits = ["surly", "selfish"],
     can_tavern = False,
 )
 
 anchovy = Species(
     name = "anchovy",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -131,13 +131,13 @@ anchovy = Species(
         speed = 25,
     ),
     qualities = ["finned", "fish", "swimmer"],
-    preferred_biomes = ["ocean"],
+    common_traits = ["bashful", "charitable"],
     can_tavern = False,
 )
 
 angel = Species(
     name = "angel",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -146,13 +146,13 @@ angel = Species(
         speed = 25,
     ),
     qualities = ["bipedal", "flyer", "spirit"],
-    preferred_biomes = ["plains", "mountains"],
+    common_traits = ["gallant", "gregarious"],
     can_tavern = False,
 )
 
 ant = Species(
     name = "ant",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -161,13 +161,13 @@ ant = Species(
         speed = 25,
     ),
     qualities = ["bug"],
-    preferred_biomes = ["hills", "plains"],
+    common_traits = ["adventurous"],
     can_tavern = False,
 )
 
 anteater = Species(
     name = "anteater",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -176,13 +176,13 @@ anteater = Species(
         speed = 25,
     ),
     qualities = ["burrower", "insect eater", "predator", "monster", "vermin", "runner"],
-    preferred_biomes = ["jungle"],
+    common_traits = ["bashful", "surly"],
     can_tavern = True,
 )
 
 demon = Species(
     name = "demon",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -191,13 +191,13 @@ demon = Species(
         speed = 25,
     ),
     qualities = ["bipedal", "flyer", "monster", "predator", "soul eater"],
-    preferred_biomes = ["volcano", "swamp", "bog"],
+    common_traits = ["surly", "egotistical"],
     can_tavern = False,
 )
 
 dwarf = Species(
     name = "dwarf",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -206,13 +206,13 @@ dwarf = Species(
         speed = 25,
     ),
     qualities = ["ape", "bipedal", "burrower", "humanoid", "meat eater", "plant eater", "primate", "runner"],
-    preferred_biomes = ["mountains", "hills", "volcano"],
+    common_traits = ["adventurous", "eccentric"],
     can_tavern = True,
 )
 
 human = Species(
     name = "human",
- base_stats = Base_stat(
+ base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -221,13 +221,13 @@ human = Species(
         speed = 25,
     ),
     qualities = ["ape", "bipedal", "fish eater", "humanoid", "meat eater", "plant eater", "predator", "primate", "runner", "wanderer"],
-    preferred_biomes = ["plains"],
+    common_traits = ["adventurous", "egotistical"],
     can_tavern = True,
 )
 
 orc = Species(
     name = "orc",
-    base_stats = Base_stat(
+    base_stats = stats(
         hp = 123,
         attack = 25,
         defence = 25,
@@ -236,7 +236,7 @@ orc = Species(
         speed = 25,
     ),
     qualities = ["ape", "bipedal", "fish eater", "humanoid", "man eater", "meat eater", "orcish", "predator", "primate", "runner"],
-    preferred_biomes = ["mountains", "bog", "wasteland"],
+    common_traits = ["surly", "adventurous"],
     can_tavern = True,
 )
 

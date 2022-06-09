@@ -1,6 +1,6 @@
 # this class is to be used in species to give that species some base stats
 
-class Base_stat:
+class stats:
     def __init__(self, hp: int = 100, attack: int = 10, defence: int = 10, special_attack: int = 10, special_defence: int = 10, speed: int = 10):
         self.hp = hp
         self.attack = attack
@@ -10,7 +10,7 @@ class Base_stat:
         self.speed = speed
 
     def info(self):
-        print("+|==|+ BASE STAT INFO +|==|+")
+        print("+|==|+ STAT INFO +|==|+")
         print("HP:", self.hp)
         print("ATTACK:", self.attack)
         print("DEFENCE:", self.defence)
