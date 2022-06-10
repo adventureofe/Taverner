@@ -277,11 +277,11 @@ moves = {
     "acid ball": acid_ball,
 
     "atomic blast": atomic_blast,
-    "atomic_punch": atomic_punch,
+    "atomic punch": atomic_punch,
     "cannibalise": cannibalise,
     "blood ball": blood_ball,
 
     "water ball": water_ball,
-    "water_jet": water_jet,
-    "water_punch": water_punch,
+    "water jet": water_jet,
+    "water punch": water_punch,
 }

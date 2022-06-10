@@ -8,7 +8,6 @@ from personality.trait import traits
 from player.player import Player
 from species.species import species
 from species.species_quality import species_qualities
-
 from weather.weather import weather
 from terrain.terrain import terrain
 import random
@@ -62,9 +61,13 @@ def battle(input_battle):
             print("Invalid command")
 
 def main():
-    c = Creature("Bob", species["human"], elements["ice"], elements["plant"], abilities["photosynthesis"])
+    c_moveset = [moves["poison sting"], moves["atomic punch" ]]
+    c = Creature("Bob", species["human"], elements["ice"], elements["plant"], abilities["photosynthesis"], c_moveset)
 
-    d = Creature("Cormac", species["aardvark"], elements["alien"], elements["radiation"], abilities["chicanery"])
+
+    d_moveset = [moves["slap"], moves["shadow ball"]]
+    d = Creature("Cormac", species["aardvark"], elements["alien"], elements["radiation"], abilities["chicanery"], d_moveset)
+
 
     p = Player(input("enter your name: "), [c])
     enemy = Player("Wizard George", [d])
