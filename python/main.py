@@ -17,60 +17,49 @@ def choose_random_word(words_list):
     selector = random.randrange(0, len(words_list))
     return words_list[selector]
 
-def battle(player, enemy, terrain, weather):
-    print(player.name, "and", enemy.name, "start to battle")
+def battle(input_battle):
+    input_battle.battle_start()
+    input_battle.info()
 
-    print("TERRAIN:", terrain.name)
-    print("WEATHER:", weather.name)
-    print()
+    while True:
+        command = input_battle.battle_menu()
 
-    print(player.name, "sends in", player.creatures[0].title())
-    print(enemy.name, "sends in", enemy.creatures[0].title())
-    print()
+        if command == 1:
+            print("attack")
+        elif command == 2:
+            print("switch")
+        elif command == 3:
+            command = input_battle.info_menu()
 
-    player_creature = player.creatures[0]
-    enemy_creature = enemy.creatures[0]
+            if command == 1:
+                command = input_battle.creature_menu()
+                if command == 1:
+                    input_battle.player_creature.info()
+                elif command == 2:
+                    input_battle.player_creature.current_stats.info()
+                else:
+                    print("invalid command")
+            elif command  == 2:
+                command = input_battle.creature_menu()
 
-    print("1. Attack")
-    print("2. Switch")
-    print("3. Info")
-    print("4. Speak")
+                if command == 1:
+                    input_battle.enemy_creature.info()
+                elif command == 2:
+                    input_battle.enemy_creature.current_stats.info()
+                else:
+                    print("invalid command")
 
-    action = int(input("Choose command: "))
-    print()
+            elif command == 3:
+                input_battle.info()
+            else:
+                print("invalid command")
 
-    if action == 1:
-        print(player_creature.name, "attacks", enemy_creature.name)
-        print(player_creature.name , "does 10 damage to", enemy_creature.name)
-        
-        print(enemy_creature.name, "hp:", enemy_creature.current_stats.hp, "->", end=" ")
-        enemy_creature.current_stats.hp = enemy_creature.current_stats.hp- 10
-        print(enemy_creature.current_stats.hp)
-    elif action == 2:
-        print("switch")
-    elif action == 3:
-        print("1.", player_creature.title())
-        print("2.", enemy_creature.title())
-        print("3. battlefield")
-
-        info = int(input("Choose info: "))
-        print()
-        if info == 1:
-            player_creature.info()
-        elif info == 2:
-            enemy_creature.info()
-        elif info == 3:
-            print("TERRAIN:", terrain.name)
-            print("WEATHER:", weather.name)
-            print()
+        elif command == 4:
+            print("speak")
+        elif command == 0:
+            return 0
         else:
-            print("invalid command")
-
-
-    elif action == 4:
-        print("speak")
-    else:
-        print("Invalid command")
+            print("Invalid command")
 
 def main():
     c = Creature("Bob", species["human"], elements["ice"], elements["plant"], abilities["photosynthesis"])
@@ -80,8 +69,8 @@ def main():
     p = Player(input("enter your name: "), [c])
     enemy = Player("Wizard George", [d])
 
-    battle(p, enemy, weather["rain"], terrain["grass"])
-
+    b = Battle(p, enemy, terrain["grass"], weather["rain"])
+    battle(b)
 
 if __name__ == "__main__":
     main()
