@@ -23,10 +23,10 @@ class Battle:
 
     def info(self):
         print("+|==|+ BATTLE INFO +|==|+")
-        print("TERRAIN:", self.terrain.name)
-        print("WEATHER:", self.weather.name)
         print("TURN:", self.turn)
         print("ROTATION:", self.rotation)
+        print("TERRAIN:", self.terrain.name)
+        print("WEATHER:", self.weather.name)
         print()
 
     def battle_menu(self):
@@ -57,4 +57,49 @@ class Battle:
         print()
         return answer
 
+
+    def battle(self):
+        self.battle_start()
+        self.info()
+
+        while True:
+            command_battle = self.battle_menu()
+
+            if command_battle == 1:
+                print("attack")
+            elif command_battle == 2:
+                print("switch")
+            elif command_battle == 3:
+                command_info = self.info_menu()
+
+                if command_info == 1:
+                    command_creature = self.creature_menu()
+                    if command_creature == 1:
+                        self.player_creature.info()
+                    elif command_creature == 2:
+                        self.player_creature.current_stats.info()
+                    else:
+                        print("invalid command")
+
+                elif command_info  == 2:
+                    command_creature = self.creature_menu()
+
+                    if command_creature == 1:
+                        self.enemy_creature.info()
+                    elif command_creature == 2:
+                        self.enemy_creature.current_stats.info()
+                    else:
+                        print("invalid command")
+
+                elif command_info == 3:
+                    self.info()
+                else:
+                    print("invalid command")
+
+            elif command_battle == 4:
+                print("speak")
+            elif command_battle == 0:
+                return 0
+            else:
+                print("Invalid command")
 
