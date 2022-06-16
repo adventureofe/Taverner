@@ -17,8 +17,8 @@ class Battle:
     def battle_start(self):
         print("A battle starts betwween", self.player.name, "and", self.enemy.name)
         self.info()
-        print(self.player.name, "sends in", self.player.creatures[0].title())
-        print(self.enemy.name, "sends in", self.enemy.creatures[0].title())
+        #print(self.player.name, "sends in", self.player.creatures[0].title())
+        #print(self.enemy.name, "sends in", self.enemy.creatures[0].title())
         print()
 
     def info(self):
@@ -28,6 +28,28 @@ class Battle:
         print("TERRAIN:", self.terrain.name)
         print("WEATHER:", self.weather.name)
         print()
+
+
+    def move_menu(self):
+        counter = 1
+        print("MOVE MENU: Choose command")
+        for i in self.player_creature.moveset:
+            print(str(counter) + ". " +  i.name)
+            counter += 1
+        answer = int(input(": "))
+        print()
+        return answer
+
+    def switch_menu(self):
+        counter = 1
+        print("SWITCH MENU: Choose command")
+        for i in self.player.creatures:
+            print(str(counter) + ". " +  i.name)
+            counter += 1
+        answer = int(input(": "))
+        print()
+        return answer
+
 
     def battle_menu(self):
         print("BATTLE MENU: Choose command")
@@ -57,18 +79,25 @@ class Battle:
         print()
         return answer
 
+    def calculate_damage(self):
+        move_selected = move_menu()
+
+
+
 
     def battle(self):
         self.battle_start()
-        self.info()
 
         while True:
+            self.info()
             command_battle = self.battle_menu()
 
             if command_battle == 1:
-                print("attack")
+                self.move_menu()
+                self.turn += 1
             elif command_battle == 2:
-                print("switch")
+                self.switch_menu()
+                self.turn += 1
             elif command_battle == 3:
                 command_info = self.info_menu()
 
@@ -98,6 +127,7 @@ class Battle:
 
             elif command_battle == 4:
                 print("speak")
+                self.turn += 1
             elif command_battle == 0:
                 return 0
             else:

@@ -2,9 +2,10 @@ from element.element import elements
 from species.species import species
 from stats import stats
 from creature.ability import abilities
+from move.move import moves
 
 class Creature:
-    def __init__(self, name: str = "DFEAULT_CREATURE_NAME", species = species["DEFAULT_SPECIES"], element_1 = elements["DEFAULT_ELEMENT"], element_2 = elements["DEFAULT_ELEMENT"], ability = abilities["DEFAULT_ABILITY"], base_stats = stats(), moveset = []):
+    def __init__(self, name: str = "DFEAULT_CREATURE_NAME", species = species["DEFAULT_SPECIES"], element_1 = elements["DEFAULT_ELEMENT"], element_2 = elements["DEFAULT_ELEMENT"], ability = abilities["DEFAULT_ABILITY"], base_stats = stats(), moveset = [moves["slap"]]):
         self.name = name
         self.species = species
         self.element_1 = element_1
@@ -13,7 +14,6 @@ class Creature:
         self.base_stats = base_stats
         self.stats = base_stats
         self.current_stats = base_stats
-
         self.moveset = moveset
 
     def info(self):

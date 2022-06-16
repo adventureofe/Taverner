@@ -1,4 +1,5 @@
 import random
+from battle.battle import Battle
 
 # add higher directory to load path
 import sys
@@ -7,12 +8,11 @@ sys.path.append("..")
 from element.element import elements
 
 class Move:
-    def __init__(self, name: str = "DEFAULT_MOVE_NAME", description: str = "DFEAULT_MOVE_DESCRIPTION", move_type = "DEFAULT_MOVE_TYPE", element = elements["DEFAULT_ELEMENT"], base_power: int = 5):
+    def __init__(self, name: str = "DEFAULT_MOVE_NAME", description: str = "DFEAULT_MOVE_DESCRIPTION", move_type = "DEFAULT_MOVE_TYPE", element = elements["DEFAULT_ELEMENT"], function = lambda x: x + 5):
         self.name = name
         self.description = description
         self.move_type = move_type
         self.element = element
-        self.base_power = base_power
 
     def info(self):
         print("+|==|+ MOVE INFO +|==|+")
@@ -20,8 +20,24 @@ class Move:
         print("DESCRIPTION: ", self.description)
         print("MOVE_TYPE: ", self.move_type)
         print("ELEMENT: ", self.element.name)
-        print("BASE_POWER: ", self.base_power)
         print()
+
+    def calc_damage(self, battle: Battle):
+        if self.move_type == "special":
+            print("special move")
+            print("player special attack:", battle.enemy_creature.current_stats.special_attack)
+            print("player special defence:", battle.enemy_creature.current_stats.special_defence)
+            print("enemy hp:", battle.enemy_creature.current_stats.hp)
+            battle.enemy_creature.current_stats.hp -= battle.player_creature.current_stats.special_attack - (battle.enemy_creature.current_stats.special_defence / 2)
+            print("enemy hp:", battle.enemy_creature.current_stats.hp)
+        elif self.move_type == "physical":
+            print("phsical move")
+            print("player attack:", battle.player_creature.current_stats.attack)
+            print("enemy defence:", battle.enemy_creature.current_stats.defence)
+            print("enemy hp:", battle.enemy_creature.current_stats.hp)
+            battle.enemy_creature.current_stats.hp -= battle.player_creature.current_stats.attack - (battle.enemy_creature.current_stats.defence / 2)
+            print("enemy hp:", battle.enemy_creature.current_stats.hp)
+
 
 DEFAULT_MOVE = Move(
 )
@@ -31,7 +47,6 @@ gust = Move(
     description = "target is stricken by ferocious, cutting winds",
     move_type = "special",
     element = elements["air"],
-    base_power = 5,
 )
 
 swoop = Move(
@@ -39,7 +54,6 @@ swoop = Move(
     description = "target is struck by piercing claws from above",
     move_type = "special",
     element = elements["air"],
-    base_power = 5,
 )
 
 fire_ball = Move(
@@ -47,7 +61,6 @@ fire_ball = Move(
     description = "target is struck with a scorching orb of flame",
     move_type = "special",
     element = elements["fire"],
-    base_power = 5,
 )
 
 fire_punch = Move(
@@ -55,7 +68,6 @@ fire_punch = Move(
     description = "target is struck by a scorching, fiery fist",
     move_type = "physical",
     element = elements["ice"],
-    base_power = 5,
 )
 
 ice_ball = Move(
@@ -63,7 +75,6 @@ ice_ball = Move(
     description = "target is struck with a orb of bitter cold",
     move_type = "special",
     element = elements["ice"],
-    base_power = 5,
 )
 
 ice_punch = Move(
@@ -71,7 +82,6 @@ ice_punch = Move(
     description = "target is struck by a bitter cold fist",
     move_type = "physical",
     element = elements["ice"],
-    base_power = 5,
 )
 
 stalictite = Move(
@@ -79,7 +89,6 @@ stalictite = Move(
     description = "target is struck by a pointed, falling rock",
     move_type = "special",
     element = elements["earth"],
-    base_power = 5,
 )
 
 rock_punch = Move(
@@ -87,7 +96,6 @@ rock_punch = Move(
     description = "target is smacked by a punch of rock",
     move_type = "physical",
     element = elements["earth"],
-    base_power = 5,
 )
 
 lightning_bolt = Move(
@@ -95,7 +103,6 @@ lightning_bolt = Move(
     description = "target is fried by a shocking bolt of lightning",
     move_type = "special",
     element = elements["electricity"],
-    base_power = 5,
 )
 
 thunder_punch = Move(
@@ -103,7 +110,6 @@ thunder_punch = Move(
     description = "target is smacked by an electrified fist",
     move_type = "physical",
     element = elements["electricity"],
-    base_power = 5,
 )
 
 back_stab = Move(
@@ -111,7 +117,6 @@ back_stab = Move(
     description = "target is underhandedly stabbed from behind",
     move_type = "physical",
     element = elements["evil"],
-    base_power = 5,
 )
 
 shadow_ball = Move(
@@ -119,7 +124,6 @@ shadow_ball = Move(
     description = "target is struck by an orb of darkness",
     move_type = "special",
     element = elements["evil"],
-    base_power = 5,
 )
 
 bullet = Move(
@@ -127,7 +131,6 @@ bullet = Move(
     description = "target is shot with a fast, metal projectile",
     move_type = "special",
     element = elements["metal"],
-    base_power = 5,
 )
 
 metal_punch = Move(
@@ -135,7 +138,6 @@ metal_punch = Move(
     description = "target is smacked by a steel fist",
     move_type = "physical",
     element = elements["metal"],
-    base_power = 5,
 )
 
 slap = Move(
@@ -143,7 +145,6 @@ slap = Move(
     description = "target is smacked upside the chops with a heavy, open hand",
     move_type = "physical",
     element = elements["normal"],
-    base_power = 5,
 )
 
 sonic_boom = Move(
@@ -151,7 +152,6 @@ sonic_boom = Move(
     description = "target is struck by a boom of sound waves",
     move_type = "special",
     element = elements["normal"],
-    base_power = 5,
 )
 
 vine_whip = Move(
@@ -159,7 +159,6 @@ vine_whip = Move(
     description = "target is whipped savagely with vines",
     move_type = "physical",
     element = elements["plant"],
-    base_power = 5,
 )
 
 leaf_ball = Move(
@@ -167,7 +166,6 @@ leaf_ball = Move(
     description = "target is by a forceful orb of cutting leaves",
     move_type = "special",
     element = elements["plant"],
-    base_power = 5,
 )
 
 
@@ -176,7 +174,6 @@ poison_sting = Move(
     description = "target is stabbed by a poisonous barb",
     move_type = "physical",
     element = elements["poison"],
-    base_power = 5,
 )
 
 acid_ball = Move(
@@ -184,7 +181,6 @@ acid_ball = Move(
     description = "target is struck by a ball of acid",
     move_type = "special",
     element = elements["poison"],
-    base_power = 5,
 )
 
 atomic_blast = Move(
@@ -192,7 +188,6 @@ atomic_blast = Move(
     description = "target is struck by the splitting atoms",
     move_type = "special",
     element = elements["radiation"],
-    base_power = 5,
 )
 
 atomic_punch = Move(
@@ -200,7 +195,6 @@ atomic_punch = Move(
     description = "target is smashed by an atom splitting punch",
     move_type = "physical",
     element = elements["radiation"],
-    base_power = 5,
 )
 
 cannibalise = Move(
@@ -208,7 +202,6 @@ cannibalise = Move(
     description = "target's flesh is eaten alive",
     move_type = "physical",
     element = elements["undead"],
-    base_power = 5,
 )
 
 blood_ball = Move(
@@ -216,7 +209,6 @@ blood_ball = Move(
     description = "target is struck by an orb of sickly blood",
     move_type = "special",
     element = elements["undead"],
-    base_power = 5,
 )
 
 water_ball= Move(
@@ -224,7 +216,6 @@ water_ball= Move(
     description = "target is struck by an forceful orb of water",
     move_type = "special",
     element = elements["water"],
-    base_power = 5,
 )
 
 water_jet = Move(
@@ -232,7 +223,6 @@ water_jet = Move(
     description = "target is soaked by a high pressured water jet",
     move_type = "special",
     element = elements["water"],
-    base_power = 5,
 )
 
 water_punch = Move(
@@ -240,7 +230,6 @@ water_punch = Move(
     description = "target is smacked by a watery punch",
     move_type = "physical",
     element = elements["water"],
-    base_power = 5,
 )
 
 moves = {
