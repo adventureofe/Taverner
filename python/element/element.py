@@ -2,6 +2,8 @@ class Element:
     def __init__(self, name: str = "DEFAULT_ELEMENT_NAME", element_type: str = "DEFAULT_ELEMENT_TYPE", weak = [], strong = []):
         self.name = name
         self.element_type = element_type
+        self.weak = weak
+        self.strong = strong
 
     def info(self):
         print("+|==|+ ELEMENT INFO +|==|+")
@@ -15,22 +17,22 @@ DEFAULT_ELEMENT = Element(
 alien = Element(
     name = "alien",
     element_type = "physical",
-    weak = ["alien", "nuclear", "poison", "undead", "water"],
-    strong = ["air", "earth", "electric", "fire", "normal", "shadow"],
+    weak = ["alien", "radiation", "poison", "undead", "water"],
+    strong = ["air", "earth", "electricity", "fire", "normal"],
 )
 
 air = Element(
     name = "air",
     element_type = "special",
-    weak = ["alien", "air", "evil", "nuclear", "plant"],
-    strong = ["electric", "fire", "ice", "mutant"],
+    weak = ["alien", "air", "evil", "radiation", "plant"],
+    strong = ["electricity", "fire", "ice", "mutation"],
 )
 
 chaos = Element(
     name = "chaos",
     element_type = "physical",
     weak = ["air", "earth", "fire", "plant"],
-    strong = ["alien", "chaos", "magic", "mutant", "nuclear", "shadow", "toon", "undead", "water"],
+    strong = ["alien", "chaos", "mutation", "radiation", "undead", "water"],
 )
 
 
@@ -38,42 +40,42 @@ earth = Element(
     name = "earth",
     element_type = "physical",
     weak = ["earth", "metal", "plant", "water"],
-    strong = ["evil", "fire", "magic", "undead"],
+    strong = ["evil", "fire", "undead"],
 )
 
 electricity = Element(
     name = "electricity",
     element_type = "special",
-    weak = ["alien", "air", "earth", "electric", "plant"],
-    strong = ["holy", "magic", "metal", "toon", "water"],
+    weak = ["alien", "air", "earth", "electricity", "plant"],
+    strong = ["holiness", "metal", "water"],
 )
 
 evil = Element(
     name = "evil",
     element_type = "physical",
-    weak = ["evil", "nuclear", "shadow", "toon", "undead"],
-    strong = ["holy", "normal", "plant"],
+    weak = ["evil", "radiation", "undead"],
+    strong = ["holiness", "normal", "plant"],
 )
 
 fire = Element(
     name = "fire",
     element_type = "special",
-    weak = ["air", "evil", "fire", "shadow", "water"],
+    weak = ["air", "evil", "fire", "water"],
     strong = ["alien", "chaos", "ice", "metal", "plant", "undead"]
 )
 
 holiness = Element(
     name = "holiness",
     element_type = "physical",
-    weak = ["alien", "chaos", "holy", "toon"],
-    strong = ["earth", "evil", "fire", "ice", "magic", "mutant", "nuclear", "poison", "shadow", "undead"],
+    weak = ["alien", "chaos", "holiness"],
+    strong = ["earth", "evil", "fire", "ice", "mutation", "radiation", "poison", "undead"],
 )
 
 ice = Element(
     name = "ice",
     element_type = "special",
-    weak = ["chaos", "fire", "ice", "magic"],
-    strong = ["alien", "earth", "holy", "mutant", "plant", "undead", "water"]
+    weak = ["chaos", "fire", "ice"],
+    strong = ["alien", "earth", "holiness", "mutation", "plant", "undead", "water"]
 )
 
 metal = Element(
@@ -86,50 +88,50 @@ metal = Element(
 mutation = Element(
     name = "mutation",
     element_type = "physical",
-    weak = ["holy", "ice", "mutant", "water"],
-    strong = ["alien", "chaos", "evil", "nuclear", "plant"],
+    weak = ["holiness", "ice", "mutation", "water"],
+    strong = ["alien", "chaos", "evil", "radiation", "plant"],
 )
 
 normal = Element(
     name = "normal",
     element_type = "physical",
     weak = ["alien", "chaos", "undead"],
-    strong = ["earth", "evil", "mutant", "toon"]
+    strong = ["earth", "evil", "mutation"]
 )
 
 plant = Element(
     name = "plant",
     element_type = "special",
-    weak = ["chaos", "evil", "fire", "ice", "nuclear", "plant"],
-    strong = ["alien", "air", "earth", "holy", "water"],
+    weak = ["chaos", "evil", "fire", "ice", "radiation", "plant"],
+    strong = ["alien", "air", "earth", "holiness", "water"],
 )
 
 poison = Element(
     name = "poison",
     element_type = "physical",
-    weak = ["metal", "mutant", "nuclear", "poison", "shadow", "toon", "undead"],
-    strong = ["alien", "chaos", "holy", "magic", "plant", "water"],
+    weak = ["metal", "mutation", "radiation", "poison", "undead"],
+    strong = ["alien", "chaos", "holiness", "plant", "water"],
 )
 
 radiation = Element(
     name = "radiation",
     element_type = "special",
-    weak = ["electric", "fire", "magic", "shadow", "toon"],
-    strong = ["alien", "chaos", "nuclear", "plant", "undead"],
+    weak = ["electricity", "fire"],
+    strong = ["alien", "chaos", "radiation", "plant", "undead"],
 )
 
 undead = Element(
     name = "undead",
     element_type = "physical",
     weak = ["air", "earth", "fire", "metal", "undead", "water"],
-    strong = ["alien", "chaos", "electric", "holy", "ice", "magic", "mutant", "normal", "poison", "shadow"]
+    strong = ["alien", "chaos", "electricity", "holiness", "ice", "mutation", "normal", "poison"]
 )
 
 water = Element(
     name = "water",
     element_type = "special",
-    weak = ["chaos", "electric", "ice", "mutant", "nuclear", "plant", "poison", "water"],
-    strong = ["alien", "evil", "fire", "magic", "metal"]
+    weak = ["chaos", "electricity", "ice", "mututation", "radiation", "plant", "poison", "water"],
+    strong = ["alien", "evil", "fire", "metal"]
 )
 
 elements = {
