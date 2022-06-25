@@ -4,4 +4,4 @@ turn based RPG
 
 All files and experimentation with different languages to be stored here.
 
-h
+Prototyping on python because it is the easiest to modify quickly

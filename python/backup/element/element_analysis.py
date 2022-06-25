@@ -7,6 +7,7 @@ def menu_main():
     print("1. Print all elements")
     print("2. Element types")
     print("3. Analyse (Element)")
+    print("4. Analyse all elements")
     answer = int(input(": "))
     print()
     return answer
@@ -33,6 +34,42 @@ def count_types():
     print_list("PHYSICAL", physical)
     print_list("SPECIAL", special)
     print_list("UNKNOWN", unknown)
+
+def analyse_all():
+    for i in elements.values():
+        print()
+        strong_atk = 0
+        weak_atk = 0
+        print(i.name + " STATS")
+
+        for j in i.strong:
+            strong_atk += 1
+
+        for j in i.weak:
+            weak_atk += 1
+
+        print("STRONG ATK(" + str(strong_atk) + ")", end = " ")
+        print("WEAK ATK(" + str(weak_atk) + ")", end = " ")
+        print("RATING(" + str((strong_atk - weak_atk)) + ")")
+
+        strong_def = 0
+        weak_def = 0
+
+        for j in elements.values():
+            for k in j.strong:
+                if k == i.name:
+                    weak_def += 1
+
+            for l in j.weak:
+                if l == i.name:
+                    strong_def += 1
+
+        print("STRONG DEF(" + str(strong_def) + ")", end = " ")
+        print("WEAK DEF(" + str(weak_def) + ")", end = " ")
+        print("RATING(" + str((strong_def - weak_def)) + ")")
+
+        print("TOTAL RATING(" +  str((strong_atk - weak_atk) + (strong_def - weak_def)) + ")")
+
 
 
 def analyse_element():
@@ -84,6 +121,9 @@ def main():
 
     elif menu_command == 3:
         analyse_element()
+
+    elif menu_command == 4:
+        analyse_all()
 
 if __name__ == "__main__":
     main()
