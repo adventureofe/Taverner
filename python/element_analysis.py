@@ -25,7 +25,6 @@ elements_atk_strong = sublist(elements, "strong")
 elements_atk_strong_len = sublist_len(elements, "strong")
 
 elements_atk_rating = [a - b for a, b in zip(elements_atk_strong_len, elements_atk_weak_len)]
-print(elements_atk_rating)
 
 #get what an element takes weak damage from
 def strong_def(elements, key):
@@ -59,36 +58,52 @@ elements_def_rating = [a - b for a, b in zip(elements_def_strong_len, elements_d
 
 elements_total_rating = [a + b for a, b in zip(elements_atk_rating, elements_def_rating)]
 
+#combine all data into hasmap/dictionary/key-value pairs
+elements_map = {
+    "id" : elements_id,
+    "name": elements_name,
+    "type": elements_type,
+
+    "atk_weak": elements_atk_weak,
+    "atk_weak_len": elements_atk_weak_len,
+    "atk_strong": elements_atk_strong,
+    "atk_strong_len": elements_atk_strong_len,
+    "def_weak": elements_def_weak,
+    "def_weak_len": elements_def_weak_len,
+    "def_strong": elements_def_strong,
+    "def_strong_len": elements_def_strong_len,
+
+    "atk_rating": elements_atk_rating,
+    "def_rating": elements_def_rating,
+    "total_rating": elements_total_rating
+}
 
 # print map entry
-def element_print(elements, key):
-    element = elements[key]
+def element_print(elements_map, key):
+    emap = elements_map
 
-    atk_rating = len(element["strong"]) - len(element["weak"])
-
-    def_weak = weak_def(elements, key)
-    def_strong = strong_def(elements, key)
-    def_rating = len(def_strong) - len(def_weak)
+    if type(key) == str:
+        key = emap["name"].index(key)
 
     print("==(ELEMENT-INFO)==")
-    print("id: " + str(element["id"]))
-    print("name: " + str(element["name"]), end = "\n\n")
+    print("id:", emap["id"][key])
+    print("name:", emap["name"][key], end = "\n\n")
 
-    print("(" + str(len(element["strong"])) + ") STRONG atk against: " + str(element["strong"]))
-    print("(" + str(len(element["weak"])) + ") WEAK atk against: " + str(element["weak"]))
-    print("atk rating: " + str(atk_rating), end = "\n\n")
+    print("STRONG atk against:", emap["atk_strong_len"][key],  emap["atk_strong"][key])
+    print("WEAK atk against:", emap["atk_weak_len"][key], emap["atk_weak"][key])
+    print("atk rating:", emap["atk_rating"][key], end = "\n\n")
 
-    print("(" + str(len(def_strong)) + ") STRONG def against: " + str(def_strong))
-    print("(" + str(len(def_weak)) + ") WEAK def against: " + str(def_weak))
-    print("def rating: " + str(def_rating), end = "\n\n")
+    print("STRONG def against:", emap["def_strong_len"][key], emap["def_strong"][key])
+    print("WEAK def against:", emap["def_weak_len"][key], emap["def_weak"][key])
+    print("def rating:", emap["def_rating"][key], end = "\n\n")
 
-    print("total rating: " + str(atk_rating + def_rating), end = "\n\n")
+    print("total rating:", emap["total_rating"][key], end = "\n\n")
 
-element_print(elements, "air")
+element_print(elements_map, "fire")
 
-plt.plot(elements_name, elements_atk_rating, drawstyle = "steps", label = "atk rating", linewidth = 1.5)
-plt.plot(elements_name, elements_def_rating, drawstyle = "steps", label = "def rating", linewidth = 1.5)
-plt.plot(elements_name, elements_total_rating, drawstyle = "steps", label = "total rating", linewidth = 3.0)
+def plot_2_axis(list_x, list_y, list_y_name):
+    plt.plot(list_x, list_y, drawstyle = "steps", label = list_y_name, linewidth = 1.5)
+    plt.legend()
+    plt.show()
 
-plt.legend()
-plt.show()
+plot_2_axis(elements_map["name"], elements_map["type"], "element_type")
