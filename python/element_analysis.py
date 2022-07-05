@@ -19,6 +19,7 @@ elements_atk_strong = sublist(elements, "strong")
 elements_atk_strong_len = sublist_len(elements, "strong")
 elements_atk_rating = [a - b for a, b in zip(elements_atk_strong_len, elements_atk_weak_len)]
 
+
 '''
 #get what an element takes weak damage from
 elements_def_strong = list(map(lambda x : get_def_list(x, "weak"), elements_atk_weak))
