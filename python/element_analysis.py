@@ -6,7 +6,7 @@ from analysis import *
 
 # load json data
 elements_json = open("../json/element.json")
-elements = json.load(elements_json)["elements"]
+elements = json.load(elements_json)
 
 # sub-lists within the elements dictionary
 elements_id = sublist(elements, "id")
@@ -17,7 +17,6 @@ elements_atk_weak_len = sublist_len(elements, "weak")
 elements_atk_strong = sublist(elements, "strong")
 elements_atk_strong_len = sublist_len(elements, "strong")
 elements_atk_rating = [a - b for a, b in zip(elements_atk_strong_len, elements_atk_weak_len)]
-
 
 def def_sublist(key, input_list):
     answer = []
@@ -84,5 +83,5 @@ def element_print(elements_map, key):
     print("total rating:", emap["total_rating"][key], end = "\n\n")
 
 
-element_print(elements_map, "normal")
+element_print(elements_map, "fire")
 plot_2_axis(elements_map["name"], elements_map["def_strong_len"], "element_type")
