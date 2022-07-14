@@ -1,4 +1,6 @@
 import json
+from matplotlib import pyplot as plt
+
 
 sublist =  lambda input_list, key: [element[key] for element in input_list]
 sublist_len =  lambda input_list, key: [len(element[key]) for element in input_list]
