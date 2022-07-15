@@ -5,7 +5,7 @@ from analysis import *
 
 # load json data
 species_json = open("../json/species.json")
-species = json.load(species_json)["species"]
+species = json.load(species_json)
 
 # sub-lists within the species dictionary
 species_id = sublist(species, "id")
@@ -34,11 +34,12 @@ def species_print(species_map, key):
 
     print("==(SPECIES-INFO)==")
     print("id:", smap["id"][key])
-    print("name:", smap["name"][key], end = "\n\n")
+    print("name:", smap["name"][key])
     print("weight:", smap["weight"][key])
     print("weight_average:", smap["weight_average"][key])
     print("length:", smap["length"][key])
-    print("length_average:", smap["length_average"][key])
+    print("length_average:", smap["length_average"][key], end="\n\n")
+    print()
 
 species_print(species_map, "dwarf")
 species_print(species_map, "elephant")
